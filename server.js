@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/practice');
 var port = process.env.PORT || 8000;
+var instaRouter = require('./routes/instagram');
+
 
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
@@ -16,6 +18,9 @@ app.get('/', function (req, res){
 });
 
 
+
+
+app.use('/', instaRouter);
 app.listen(port);
 console.log('winning on ' + port);
 
