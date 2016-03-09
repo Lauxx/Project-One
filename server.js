@@ -11,8 +11,8 @@ mongoose.connect('mongodb://localhost/practice');
 var port = process.env.PORT || 8000;
 var instaRouter = require('./routes/instagram');
 
-var UserBio = require('./models/userbio');
-var userBioRouter = require('./routes/userbio');
+var Goal = require('./models/goal');
+var goalRouter = require('./routes/goal');
 
 
 app.use(express.static('public'));
@@ -54,7 +54,7 @@ app.get('/', function (req, res){
 
 
 app.use('/', instaRouter);
-app.use('/api', userBioRouter);
+app.use('/api', goalRouter);
 
 app.listen(port);
 console.log('winning on ' + port);
