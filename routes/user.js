@@ -35,5 +35,42 @@ module.exports = function(app, passport) {
         res.redirect('/');
     });
 
+    app.get('/api/user', function(req, res){
+      if(req.user){
+          User.findById({_id: req.user._id}, function(err, user) {
+            if(err) {
+              console.log(err);
+            } else {
+              res.json(user);
+            }
+          })         
+        } else {
+          res.json({message: "no user signed in"});
+        }
 
+    })
+
+//NOT SURE WHERE THIS ONE GOES
+    app.put('/api/user', function(req, res){
+      if(req.user) {
+        User.findById({_id: req.user._id}, function(err, user) {
+          if(err) {
+            console.log(err);
+          } else {
+            user.bio = req.body.bio ? req.body.bio : user.bio;
+            user.profileImage = req.body.profileImage ? req.body.profileImage : user.profileImage;
+
+            user.save(function(err, update){
+              if(err) {
+                console.log(err)
+              } else {
+                res.json(update);
+              }
+            })
+          }
+        })
+      } else {
+        res.json({message: "no user signed in"});
+      }
+    }) 
 };

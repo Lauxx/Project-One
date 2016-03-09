@@ -7,7 +7,9 @@ var userSchema = mongoose.Schema({
     password: String,
     username: String,
     role: String,
-    loggedIn: Boolean
+    loggedIn: Boolean,
+    bio: String,
+    profileImage: String
   }
 });
 
