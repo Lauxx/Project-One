@@ -6,7 +6,8 @@ var GoalSchema = new Schema ({
     taskList: String,
     startDate: String,
     endDate: String,
-
+    comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}],
+    author: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 });
 
 module.exports = mongoose.model ('Goal', GoalSchema);

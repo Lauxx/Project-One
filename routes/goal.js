@@ -3,13 +3,15 @@
 var express = require('express');
 var router = express.Router();
 
+var Comment = require('../models/comment');
 var Goal = require('../models/goal');
 
 router.route('/visionboard')
   .get(function(req, res, next){
 
     Goal.find()
-    .populate('author')//ask Doug?
+    .populate('author')
+    .populate('comments')
     .exec(function(err, goal){
         if(err){
             console.log(err);
@@ -27,6 +29,7 @@ router.route('/visionboard')
     goal.taskList = req.body.taskList || 'none';
     goal.startDate = req.body.startDate || 'none';
     goal.endDate = req.body.endDate || 'none';
+    goal.author = req.user ? req.user._id : '56df6149fa9dff1e9be93c83'
 
     console.log(goal);
 
@@ -44,7 +47,7 @@ router.route('/visionboard')
 
 router.route('/visionboard/:goal_id') //ask Doug
   .get(function(req, res, next){
-      Goal.find(req.params.goal_id, function(err, goal){
+      Goal.findById(req.params.goal_id, function(err, goal){
         if (err){
           console.log(err);
           next();
@@ -55,7 +58,7 @@ router.route('/visionboard/:goal_id') //ask Doug
     })
 
   .put(function(req, res, next){
-      Goal.findById(req.params.goal_id, function(err, goal){//ask Doug why it's findbyid
+      Goal.findById(req.params.goal_id, function(err, goal){
         if(err){
           console.log(err);
           next();
@@ -88,5 +91,31 @@ router.route('/visionboard/:goal_id') //ask Doug
         }
       });
   })
+
+router.route('/visionboard/:goal_id/comment')
+  .post(function(req, res){
+
+      var comment = new Comment();
+
+      comment.body = req.body.body ? req.body.body : comment.body;
+      comment.user = '56df6149fa9dff1e9be93c83';
+      comment.goal = req.params.goal_id;
+
+      comment.save(function(err, comm){
+        if(err) {
+          res.send(err);
+        } else {
+          Goal.findById(req.params.goal_id, function(err, goal){
+            if (err) {
+              res.send(err);
+            } else {
+              goal.comments.push(comm._id);
+              goal.save();
+              res.json(comm);            
+            }
+          })
+        }
+      })
+    })
 
   module.exports = router;
