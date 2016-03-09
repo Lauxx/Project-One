@@ -118,4 +118,34 @@ router.route('/visionboard/:goal_id/comment')
       })
     })
 
+  .get(function(req, res){
+    Goal.findById(req.params.goal_id, function(err, goal){
+      if (err) {
+        console.log(err);
+      } else {
+        res.json(goal);
+      }
+    })
+  })
+
+  .delete(function(req, res){
+    Goal.remove({ _id: req.params.goal_id}, function(err, goal){
+      if(err) {
+        console.log(err);
+      } else {
+        res.json({message: 'comment deleted!'});
+      }
+    })
+  });
+
   module.exports = router;
+
+
+
+
+
+
+
+
+
+
