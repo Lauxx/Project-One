@@ -19,7 +19,7 @@ authorize_user = function(req, res) {
 handleauth = function(req, res) {
   api.authorize_user(req.query.code, redirect_uri, function(err, result) {
     if (err) {
-      console.log(err.body);
+      console.log(err.body);   
       res.send("Didn't work");
     } else {
       console.log('Yay! Access token is ' + result.access_token);
