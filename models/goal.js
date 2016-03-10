@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var GoalSchema = new Schema ({
     intention: String,
-    taskList: String,
+    taskList: Array,
     startDate: String,
     endDate: String,
     comments: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}],

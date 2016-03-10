@@ -1,5 +1,5 @@
 var GoalsApp = React.createClass({
-
+	
   render: function() {
     return (
       <div>
