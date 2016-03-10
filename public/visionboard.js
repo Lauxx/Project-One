@@ -86,8 +86,10 @@ loadImagesFromServer: function() {
   render: function() {
     return (
         <div>
-
+        
+          <UserBio />
           <GoalsApp />
+
 
         </div>
       )
