@@ -52,6 +52,10 @@ app.get('/', function (req, res){
 	res.render('index')
 });
 
+app.get('/visionboard', function(req, res){
+  var user = req.user || "no user";
+  res.render('visionboard', {user: user})
+});
 
 app.use('/', instaRouter);
 app.use('/api', goalRouter);

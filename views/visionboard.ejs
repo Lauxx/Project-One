@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Project One</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="main.css">
+  <nav class="navbar navbar-inverse">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>                        
+                  </button>
+                  <a class="navbar-brand text" href="/">Project One</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav">
+                    <li class="para-text"><a href="/">Home</a></li>
+
+                    <li class="dropdown para-text">
+                      <a class="dropdown-toggle" data-toggle="dropdown" href="/visionboard">Visionboard<span class="caret"></span></a>
+                      <ul class="dropdown-menu para-text">
+                        <li><a href="/visionboard">Visionboard</a></li>
+                        
+                        
+                      </ul>
+                    </li>
+
+                    
+
+                    
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right para-text">
+                  <li class="white">
+                      <% if (user.local) { %>
+            <%= user.local.email %>
+            <% }else{ %>
+            <%= user %>
+            <%}%>
+                  </li>
+                  <li><a href="/login"><span class="glyphicon glyphicon-user"></span> Login</a></li>
+                  <li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Logout </a></li>
+                    <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    
+                  </ul>
+                </div>
+              </div>
+    </nav>
+  </head>
+  <body>
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script src="app.js"></script>
+</body>
+</html>
