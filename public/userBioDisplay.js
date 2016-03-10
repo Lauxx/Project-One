@@ -1,4 +1,4 @@
-var UserBio = React.createClass({
+var UserBioDisplay = React.createClass({
 	render: function(){
 		return(
 		<div>
