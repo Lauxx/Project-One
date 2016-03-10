@@ -1,30 +1,21 @@
 {/*
 - VisionBoard
-  - PictureBoard
+
+  - PictureApp
 
   - GoalsApp
     - GoalBoxDisplay
-      - DatesDisplay
-      - IntentionDisplay
-      - TaskListDisplay
-        - ProgressBar
-
     - GoalBoxForm
-      - DatesForm
-      - IntentionForm
-      - TaskListForm
-
     - CommentBox
       - CommentList
         - Comment
       - CommentForm
 
-  - UserBio
+  - UserBioApp
     - UserBioDisplay
     - UserBioForm
 
  */}
-
 
 
 var VisionBoard = React.createClass ({

@@ -1,3 +1,23 @@
+{/*
+- VisionBoard
+
+  - PictureApp
+
+  - GoalsApp
+    - GoalBoxDisplay
+    - GoalBoxForm
+    - CommentBox
+      - CommentList
+        - Comment
+      - CommentForm
+
+  - UserBioApp
+    - UserBioDisplay
+    - UserBioForm
+
+ */}
+ 
+
 var UserBioDisplay = React.createClass({
 	render: function(){
 		return(
