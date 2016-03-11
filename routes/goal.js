@@ -9,7 +9,7 @@ var Goal = require('../models/goal');
 router.route('/visionboard')
   .get(function(req, res, next){
 
-    Goal.find({author: req.user._id})
+    Goal.find()
     .populate('author')
     .populate('comments')
     .exec(function(err, goal){
@@ -29,7 +29,9 @@ router.route('/visionboard')
     goal.taskList = req.body.taskList || 'none';
     goal.startDate = req.body.startDate || 'none';
     goal.endDate = req.body.endDate || 'none';
-    goal.author = req.user ? req.user._id : '56df6149fa9dff1e9be93c83'
+    goal.author = req.user ? req.user._id : '56df6149fa9dff1e9be93c83';
+    goal.posX = req.body.posX || 0;
+    goal.posY = req.body.posY || 0;
 
     console.log(goal);
 

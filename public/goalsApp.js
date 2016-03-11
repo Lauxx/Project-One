@@ -15,6 +15,9 @@
     - UserBioDisplay
     - UserBioForm
 
+    add new text
+    and then some more
+
  */}
 
 
@@ -24,16 +27,19 @@ var GoalsApp = React.createClass({
     window.thing = this.props.goals;
     var gb = this.props.goals.map(function(g){
          return (
+          <div>
           <GoalBoxDisplay intention={g.intention} taskList={g.taskList}
           startDate={g.startDate} endDate={g.endDate}/>
-       )
+          <CommentBox comments={g.comments}/>
+          </div>
+          )
     })
 
     return (
       <div>
         {gb}
         <GoalBoxForm/>
-        <CommentBox/>
+        
        </div>     
       )
   }

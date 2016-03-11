@@ -9,3 +9,23 @@
 
 }
 
+#thing{
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-color: green;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+}
+
+#thing2{
+  display: block;
+  width: 300px;
+  height: 50px;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+
+  margin-top:  10px;
+}
