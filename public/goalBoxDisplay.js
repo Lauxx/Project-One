@@ -41,14 +41,16 @@ var GoalBoxDisplay = React.createClass({
          <h3 className="panel-title">Goals</h3>
        </div>
        <div className="panel-body">
-         <p>View goals here</p>
+         <p>{this.props.intention}</p>
          <div className = 'row'>
          <p>Start Date</p>
          <input type="date" name="" id="input" className="form col-xs-3" value="" required="required" title=""/>
+         <p>{this.props.startDate}</p>
          </div>
          <div className='row'>
          <p>End Date</p>
          <input type="date" name="" id="input" className="form col-xs-3" value="" required="required" title=""/>
+         {this.props.endDate}
          </div>
          <div className='row'>
            <ul>
@@ -57,11 +59,11 @@ var GoalBoxDisplay = React.createClass({
                 <label><input type="checkbox" value=""/></label>
              </li>
               <li className='checkbox'>
-               this is one task 
+               {this.props.taskList}
                 <label><input type="checkbox" value=""/></label>
              </li>
               <li className = 'checkbox'>
-               this is one task 
+               
                 <label><input type="checkbox" value=""/></label>
              </li>
            </ul>

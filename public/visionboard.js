@@ -17,13 +17,16 @@
 
  */}
 
-
+console.log('do anything please');
 var VisionBoard = React.createClass ({
   getInitialState: function() {
     return {
-      user: {}
+      user: {},
+      goals: []
+      
     }
   },
+
   loadUserFromServer: function() {
     console.log('going somewhere?')
     var self = this; 
@@ -38,9 +41,24 @@ var VisionBoard = React.createClass ({
     })
   },
 
+  loadGoalsFromServer: function(){
+    console.log("Doing some goals!")
+    var self = this;
+    var id = this.state.user._id;
+    $.ajax({
+      url: this.props.urlVision + id,
+      method: 'GET',
+    }).done(function(goal){
+      console.log(goal)
+      self.setState({
+        goals: goal
+      })
+    })
+  },
 
   componentDidMount: function() {
     this.loadUserFromServer();
+    this.loadGoalsFromServer();
   },
 
   render: function() {
@@ -48,7 +66,7 @@ var VisionBoard = React.createClass ({
         <div>
 
           <UserBioApp user={this.state.user}/>
-          <GoalsApp />
+          <GoalsApp goals={this.state.goals}/>
 
 
         </div>
@@ -57,4 +75,8 @@ var VisionBoard = React.createClass ({
 });
 
 
-React.render(<VisionBoard url='/api/user/' />, document.getElementById('visionboard'));
+React.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/'/>,
+ document.getElementById('visionboard'));
+
+
+

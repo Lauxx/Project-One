@@ -9,7 +9,7 @@ var Goal = require('../models/goal');
 router.route('/visionboard')
   .get(function(req, res, next){
 
-    Goal.find()
+    Goal.find({author: req.user._id})
     .populate('author')
     .populate('comments')
     .exec(function(err, goal){
@@ -45,9 +45,9 @@ router.route('/visionboard')
     });
   })
 
-router.route('/visionboard/:goal_id') //ask Doug
+router.route('/visionboard/goal/:user_id') //ask Doug
   .get(function(req, res, next){
-      Goal.findById(req.params.goal_id, function(err, goal){
+      Goal.find(req.params.user_id, function(err, goal){
         if (err){
           console.log(err);
           next();
@@ -57,6 +57,17 @@ router.route('/visionboard/:goal_id') //ask Doug
       });
     })
 
+router.route('/visionboard/:goal_id')
+  .get(function(req, res, next){
+    Goal.findById(req.params.goal_id, function(err, goal){
+      if (err){
+        console.log(err)
+        next();
+      } else {
+        res.json(goal)
+      }
+    });
+  })
   .put(function(req, res, next){
       Goal.findById(req.params.goal_id, function(err, goal){
         if(err){

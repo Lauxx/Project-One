@@ -21,10 +21,18 @@
 var GoalsApp = React.createClass({
 	
   render: function() {
+    window.thing = this.props.goals;
+    var gb = this.props.goals.map(function(g){
+         return (
+          <GoalBoxDisplay intention={g.intention} taskList={g.taskList}
+          startDate={g.startDate} endDate={g.endDate}/>
+       )
+    })
+
     return (
       <div>
-       <GoalBoxDisplay/>
-       <GoalBoxForm/>
+        {gb}
+        <GoalBoxForm/>
         <CommentBox/>
        </div>     
       )
