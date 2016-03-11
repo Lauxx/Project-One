@@ -20,10 +20,20 @@
 
 var UserBioApp = React.createClass({
 	render: function(){
+
+    if(this.props.user.local){
+      var u = this.props.user.local
+    } else {
+      var u = {};
+      u.bio = "none";
+      u.profileImage = "none";
+    }
+    console.log("USER BIO APP")
 		return(
 			<div>
-			<UserBioDisplay/>
-			<UserBioForm/>
+        <UserBioDisplay bio={u.bio} profileImage={u.profileImage}/>
+    
+			   <UserBioForm/>
 			</div>
 			)
 	}

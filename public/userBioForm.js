@@ -27,7 +27,7 @@ var UserBioForm = React.createClass({
 						<div className='row col-xs-6'>
 				  		<form action="" method="POST" role="form">
 				  			<div className="form-group">
-				      			<label className="row" for="">Profile Image</label>
+				      			<label className="row" htmlFor="">Profile Image</label>
 				      			<input type="text" className="form-control" id="" placeholder="img url goes here"/>
 				    			</div>
 				    			<button type="submit" className="btn btn-primary">Upload Photo</button>
