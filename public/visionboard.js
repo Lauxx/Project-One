@@ -23,8 +23,7 @@ var VisionBoard = React.createClass ({
     return {
       user: {},
       goals: [],
-      
-      
+
     }
   },
 
@@ -57,26 +56,10 @@ var VisionBoard = React.createClass ({
     })
   },
 
-  /*loadCommentsFromServer: function() {
-    console.log('viewing comments....')
-    var self = this;
-    var goalId = (this.state.goals._id + '/comment/');
-    $.ajax({
-      url: this.props.urlComment + goalId,
-      method: 'GET'
-    }).done(function(comment){
-      console.log(comment)
-      self.setState({
-        comments: comment
-      })
-    })
-
-  },*/
 
   componentDidMount: function() {
     this.loadUserFromServer();
     this.loadGoalsFromServer();
-    /*this.loadCommentsFromServer();*/
   },
 
   render: function() {
@@ -84,8 +67,7 @@ var VisionBoard = React.createClass ({
         <div>
 
           <UserBioApp user={this.state.user}/>
-          <GoalsApp goals={this.state.goals} />
-
+          <GoalsApp goals={this.state.goals}/>
 
         </div>
       )
@@ -93,7 +75,7 @@ var VisionBoard = React.createClass ({
 });
 
 
-React.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/' urlComment='/api/visionboard/' />,
+React.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/' />,
  document.getElementById('visionboard'));
 
 

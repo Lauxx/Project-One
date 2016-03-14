@@ -30,7 +30,7 @@ var GoalsApp = React.createClass({
           <div>
           <GoalBoxDisplay intention={g.intention} taskList={g.taskList}
           startDate={g.startDate} endDate={g.endDate}/>
-          <CommentBox comments={g.comments}/>
+          <CommentBox commentsArray={g.comments} />
           </div>
           )
     })
@@ -39,7 +39,6 @@ var GoalsApp = React.createClass({
       <div>
         {gb}
         <GoalBoxForm/>
-        
        </div>     
       )
   }
