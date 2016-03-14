@@ -56,6 +56,43 @@ var VisionBoard = React.createClass ({
     })
   },
 
+  handleGoalFormSubmit: function(goal) {
+    var self = this;
+    console.log(goal);
+    $.ajax({
+      url: this.props.urlGoal,
+      dataType: 'json',
+      type: 'POST',
+      data: goal,
+      success: function(data) {
+        this.loadGoalsFromServer();
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.urlGoal, status, err.toString());
+      }.bind(this)
+    });
+  },
+
+  /*handleGoalDelete: function(id) {
+    var self = this;
+    var id = id;
+    $.ajax({
+      url: '/api/visionboard/' + id
+      method: 'DELETE'
+    }).done(function() {
+      self.loadGoalsFromServer();
+          console.log('deleted goal from server')
+    })
+  },
+
+  /*handleUserBioFormSubmit: function(userBio) {
+
+  },
+
+  handleCommentFormSubmit: function(comment) {
+
+  },
+*/
 
   componentDidMount: function() {
     this.loadUserFromServer();
@@ -63,11 +100,12 @@ var VisionBoard = React.createClass ({
   },
 
   render: function() {
+    console.log(this.state.goals);
     return (
         <div>
 
           <UserBioApp user={this.state.user}/>
-          <GoalsApp goals={this.state.goals}/>
+          <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } />
 
         </div>
       )
@@ -75,7 +113,7 @@ var VisionBoard = React.createClass ({
 });
 
 
-React.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/' />,
+React.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/' urlGoal='/api/visionboard/' />,
  document.getElementById('visionboard'));
 
 
