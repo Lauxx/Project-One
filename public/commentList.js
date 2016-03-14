@@ -20,9 +20,16 @@
 
 var CommentList = React.createClass({
 	render: function(){
+
+    var comm = this.props.comments.map(function(c){
+         return (
+          <Comment commentAuthor={c.user} commentBody={c.body} commentDate={c.date}/>
+       )
+    })
+
 		return(
 			<div>
-			<Comment/>
+			 { comm }
 			</div>
 			)
 	}

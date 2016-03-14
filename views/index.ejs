@@ -57,12 +57,36 @@
       <h1>Landing Page Photo Gallery</h1>
     </div> 
   </div>
-  
+
+  <div class="row">
+    <div id="thing" class="center-block">
+      <p>DRAG ME!</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="thing2" class="center-block btn btn-warning">
+      <p>CLICK ME TO UPDATE!</p>
+    </div>
+  </div>
+
+    <div class="row">
+    <input id="input" class="center-block">  </input>
+    <input id="input2" class="center-block">  </input>
+    </div>
+
+
+  <div class="row">
+    <div id="submitButton" class="center-block btn btn-primary">
+      <p>CLICK ME TO SUBMIT!</p>
+    </div>
+  </div>
+
 <div class='container'>
 <legend>Goal</legend>
 <div class='row col-xs-6'>
 
-  <form action="" method="POST" role="form">
+<!--   <form action="" method="POST" role="form">
     
   
     <div class="form-group">
@@ -85,7 +109,9 @@
         </div>
   </form>
   </div>
-</div>
+</div> -->
+
+
 
 
 
@@ -93,8 +119,55 @@
 
 <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/utils/Draggable.min.js"></script>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-<script src=""></script>
+<script>
+  Draggable.create("#thing", {type:"x,y", bounds:window, onDragEnd: thingFunction, force3D: true});
+
+    var posX;
+    var posY;
+
+  function thingFunction(){
+    posX = Draggable.get('#thing').x;
+    posY = Draggable.get('#thing').y;
+
+    console.log(typeof posX);
+    console.log(typeof posY);
+  }
+
+  $("#thing2").mousedown(function(){
+    posX = document.getElementById('input').value;
+    posY = document.getElementById('input2').value;
+    TweenMax.to("#thing", 0, {x: posX, y: posY});
+  })
+
+  var data = ({
+    posX: posX,
+    posY: posY
+  })
+
+  $('#submitButton').mousedown(function(){
+
+            $.ajax({
+              url: "/api/visionboard/",
+              dataType: 'json',
+              data: data,
+              type:'POST',
+              success: function(response){
+                console.log("posting data!", data, response)
+              }.bind(this),
+              error: function(xhr, status, err){
+                console.log("not posting data!")
+                console.error(this.props.url, status, err.toString());
+              }.bind(this)
+            })
+  })
+
+
+
+</script>
 </body>
 </html>

@@ -22,8 +22,8 @@ var VisionBoard = React.createClass ({
   getInitialState: function() {
     return {
       user: {},
-      goals: []
-      
+      goals: [],
+
     }
   },
 
@@ -56,6 +56,7 @@ var VisionBoard = React.createClass ({
     })
   },
 
+
   componentDidMount: function() {
     this.loadUserFromServer();
     this.loadGoalsFromServer();
@@ -68,14 +69,13 @@ var VisionBoard = React.createClass ({
           <UserBioApp user={this.state.user}/>
           <GoalsApp goals={this.state.goals}/>
 
-
         </div>
       )
   }
 });
 
 
-React.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/'/>,
+React.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/' />,
  document.getElementById('visionboard'));
 
 

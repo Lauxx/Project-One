@@ -29,7 +29,9 @@ router.route('/visionboard')
     goal.taskList = req.body.taskList || 'none';
     goal.startDate = req.body.startDate || 'none';
     goal.endDate = req.body.endDate || 'none';
-    goal.author = req.user ? req.user._id : '56df6149fa9dff1e9be93c83'
+    goal.author = req.user ? req.user._id : '56df6149fa9dff1e9be93c83';
+    goal.posX = req.body.posX || 0;
+    goal.posY = req.body.posY || 0;
 
     console.log(goal);
 
@@ -47,7 +49,10 @@ router.route('/visionboard')
 
 router.route('/visionboard/goal/:user_id') //ask Doug
   .get(function(req, res, next){
-      Goal.find(req.params.user_id, function(err, goal){
+      Goal.find(req.params.user_id)
+      .populate('author')
+      .populate('comments')
+      .exec(function(err, goal){
         if (err){
           console.log(err);
           next();
@@ -130,13 +135,17 @@ router.route('/visionboard/:goal_id/comment')
     })
 
   .get(function(req, res){
-    Goal.findById(req.params.goal_id, function(err, goal){
+    Goal.findById(req.params.goal_id)
+      .populate('author')
+      .populate('comments')
+      .exec(function(err, goal){
       if (err) {
         console.log(err);
       } else {
         res.json(goal);
       }
     })
+
   })
 
   .delete(function(req, res){
@@ -150,6 +159,9 @@ router.route('/visionboard/:goal_id/comment')
   });
 
   module.exports = router;
+
+
+
 
 
 
