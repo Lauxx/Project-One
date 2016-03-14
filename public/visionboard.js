@@ -1,4 +1,4 @@
-{/*
+/*
 - VisionBoard
 
   - PictureApp
@@ -15,7 +15,7 @@
     - UserBioDisplay
     - UserBioForm
 
- */}
+ */
 
 console.log('do anything please');
 var VisionBoard = React.createClass ({

@@ -33,7 +33,7 @@ var GoalsApp = React.createClass({
       <div>
         {gb}
         <GoalBoxForm/>
-        <CommentBox/>
+        <CommentBox />
        </div>     
       )
   }

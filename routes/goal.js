@@ -9,7 +9,7 @@ var Goal = require('../models/goal');
 router.route('/visionboard')
   .get(function(req, res, next){
 
-    Goal.find({author: req.user._id})
+    Goal.find()
     .populate('author')
     .populate('comments')
     .exec(function(err, goal){
