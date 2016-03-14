@@ -23,6 +23,7 @@ var VisionBoard = React.createClass ({
     return {
       user: {},
       goals: [],
+      comments: [],
 
     }
   },
@@ -51,6 +52,21 @@ var VisionBoard = React.createClass ({
       console.log(goal)
       self.setState({
         goals: goal
+      })
+    })
+  },
+
+  loadCommentsFromServer: function(){
+    console.log("some commmentsssssssss");
+    var self = this; 
+    var id = this.state.goals._id;
+    $.ajax({
+      url: this.props.urlGoal + id +'/comment',
+      method: 'GET',
+    }).done(function(comment){
+      console.log(comment)
+      self.setState({ 
+        comments: comment
       })
     })
   },
@@ -104,21 +120,41 @@ var VisionBoard = React.createClass ({
     });
   },
 
- 
+  handleCommentFormSubmit: function(comment){
+    console.log("I AM BEING CALLED", comment);
+    var self = this;
+    var id = this.state.goals._id;
+    console.log(id);
+    $.ajax({
+      url: this.props.urlGoal + id +'/comment',
+      dataType: 'json',
+      type: 'POST',
+      data: comment,
+      success: function(data){
+        console.log(data, 'this is comment data');
+        this.loadCommentsFromServer();
+      }.bind(this),
+      error: function(xhr, status, err){
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
+  },
 
 
   componentDidMount: function() {
     this.loadUserFromServer();
     this.loadGoalsFromServer();
+    this.loadCommentsFromServer();
   },
 
   render: function() {
-    console.log(this.state.goals);
+    
     return (
         <div>
 
           <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit }/>
-          <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } />
+          <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } 
+          handleCommentSubmit={ this.handleCommentFormSubmit }/>
 
         </div>
       )

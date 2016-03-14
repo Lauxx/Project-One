@@ -23,6 +23,31 @@
 
 var GoalsApp = React.createClass({
 
+  // get initial state for active goal
+  // define a load comments from server with specific goal id
+  // only display active goal
+  // pass down loadcomments from server to comment box
+  // show current state and pass down information
+
+
+
+
+
+  loadCommentsFromServer: function(){
+    console.log("some commmentsssssssss");
+    var self = this; 
+    var id = this.state.goal._id;
+    $.ajax({
+      url: this.props.urlGoal + id +'/comment',
+      method: 'GET',
+    }).done(function(comment){
+      console.log(comment)
+      self.setState({ 
+        comments: comment
+      })
+    })
+  },
+
   handleLinkClick: function(id) {
     console.log(id);
   },
@@ -47,7 +72,7 @@ var GoalsApp = React.createClass({
           <div>
           <GoalBoxDisplay intention={g.intention} taskList={g.taskList}
           startDate={g.startDate} endDate={g.endDate}/>
-          <CommentBox commentsArray={comments} />
+          <CommentBox ableToComment={ this.props.handleCommentSubmit} commentsArray={g.comments} />
           </div>
           )
     })
@@ -66,6 +91,7 @@ var GoalsApp = React.createClass({
            </div>
          </nav>
         {gb}
+
         <GoalBoxForm ableToSubmit={this.props.handleGoalSubmit} ableToDelete={this.props.handleGoalDelete} />
        </div>     
       )

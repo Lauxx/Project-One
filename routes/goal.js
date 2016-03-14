@@ -142,7 +142,12 @@ router.route('/visionboard/:goal_id/comment')
     Goal.findById(req.params.goal_id)
       .populate('author')
       .populate('comments')
-      .populate('user')
+      .populate({
+       path: 'comments',
+       populate: {
+         path: 'user',
+          }
+        })
       .exec(function(err, goal){
       if (err) {
         console.log(err);
