@@ -48,18 +48,18 @@ module.exports = function(app, passport) {
           res.json({message: "no user signed in"});
         }
 
-    })
+    });
 
 //NOT SURE WHERE THIS ONE GOES
-    app.put('/api/user', function(req, res){
-      if(req.user) {
-        User.findById({_id: req.user._id}, function(err, user) {
+    app.put('/api/user/:user_id', function(req, res){
+      console.log("TRYING TO PUTTTTT!!!!")
+        User.findById({_id: req.params.user_id}, function(err, user) {
           if(err) {
             console.log(err);
           } else {
-            user.bio = req.body.bio ? req.body.bio : user.bio;
-            user.profileImage = req.body.profileImage ? req.body.profileImage : user.profileImage;
-
+            user.local.bio = req.body.bio ? req.body.bio : user.local.bio;
+            user.local.profileImage = req.body.profileImage ? req.body.profileImage : user.local.profileImage;
+            console.log("SUCCESS!!")
             user.save(function(err, update){
               if(err) {
                 console.log(err)
@@ -69,8 +69,6 @@ module.exports = function(app, passport) {
             })
           }
         })
-      } else {
-        res.json({message: "no user signed in"});
-      }
+      
     }) 
 };

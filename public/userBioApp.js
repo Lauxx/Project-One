@@ -33,7 +33,7 @@ var UserBioApp = React.createClass({
 			<div>
         <UserBioDisplay bio={u.bio} profileImage={u.profileImage}/>
     
-			   <UserBioForm/>
+			   <UserBioForm ableToUpdateBio = { this.props.handleBioSubmit }/>
 			</div>
 			)
 	}

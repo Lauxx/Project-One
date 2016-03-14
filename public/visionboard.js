@@ -34,7 +34,6 @@ var VisionBoard = React.createClass ({
       url: this.props.url,
       method: 'GET',
     }).done(function(bio){
-      console.log(bio)
       self.setState({
         user: bio
       })
@@ -83,16 +82,30 @@ var VisionBoard = React.createClass ({
       self.loadGoalsFromServer();
           console.log('deleted goal from server')
     })
+  },*/
+
+  handleUserBioFormSubmit: function(userBio) {
+    console.log("I am being called!!", userBio);
+    var self = this;
+    var id = this.state.user._id;
+    console.log(id);
+    $.ajax({
+      url: this.props.url + id,
+      dataType: 'json',
+      type: 'PUT',
+      data: userBio,
+      success: function(data){
+        console.log(data, "SOME DATA!!");
+        this.loadUserFromServer();
+      }.bind(this),
+      error: function(xhr, status, err){
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    });
   },
 
-  /*handleUserBioFormSubmit: function(userBio) {
+ 
 
-  },
-
-  handleCommentFormSubmit: function(comment) {
-
-  },
-*/
 
   componentDidMount: function() {
     this.loadUserFromServer();
@@ -104,7 +117,7 @@ var VisionBoard = React.createClass ({
     return (
         <div>
 
-          <UserBioApp user={this.state.user}/>
+          <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit }/>
           <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } />
 
         </div>

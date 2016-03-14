@@ -102,8 +102,8 @@ module.exports = function(passport) {
                 newUser.local.password = newUser.generateHash(password);
                 newUser.local.username = req.body.username;
                 newUser.local.role = 'guest';
-                newUser.local.bio = req.body.bio;
-                newUser.local.profileImage = req.body.profileImage;
+                newUser.local.bio = req.body.bio ? req.body.bio : "Please update your bio.";
+                newUser.local.profileImage = req.body.profileImage ? req.body.profileImage : "Update your photo.";
 
                 // save the user
                 newUser.save(function(err) {
