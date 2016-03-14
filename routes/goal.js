@@ -24,7 +24,9 @@ router.route('/visionboard')
 
   .post(function(req, res, next){
     var goal = new Goal();
-   
+
+    console.log(req.body, 'THIS IS REQ BODY!!!!!!!!!!!!!!!');
+
     goal.intention = req.body.intention || 'none';
     goal.taskList = req.body.taskList || 'none';
     goal.startDate = req.body.startDate || 'none';
@@ -34,6 +36,7 @@ router.route('/visionboard')
     goal.posY = req.body.posY || 0;
 
     console.log(goal);
+
 
 
     goal.save(function(err, goal){
@@ -52,6 +55,7 @@ router.route('/visionboard/goal/:user_id') //ask Doug
       Goal.find(req.params.user_id)
       .populate('author')
       .populate('comments')
+      .populate('user')
       .exec(function(err, goal){
         if (err){
           console.log(err);
@@ -138,6 +142,7 @@ router.route('/visionboard/:goal_id/comment')
     Goal.findById(req.params.goal_id)
       .populate('author')
       .populate('comments')
+      .populate('user')
       .exec(function(err, goal){
       if (err) {
         console.log(err);
