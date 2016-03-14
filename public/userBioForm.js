@@ -38,9 +38,7 @@ var UserBioForm = React.createClass({
 		var bio = this.state.bio.trim();
 
 		console.log(profileImage, bio);
-		if (!bio){
-			return;
-		}
+		
 		this.props.ableToUpdateBio({ profileImage: profileImage, bio: bio });
 		this.setState({ profileImage: '', bio: ''})
 	},
@@ -65,7 +63,7 @@ var UserBioForm = React.createClass({
 				         		<div className='row'>
 				         		<p>Bio Update</p>
 				         		<input type="text" name="" id="input" className="form col-xs-3" value={this.state.bio} 
-                    			onChange={this.handleBioChange} required="required" title=""/>
+                    			onChange={this.handleBioChange} placeholder="update your bio here" title=""/>
 				         	</div>
 
 
