@@ -82,6 +82,14 @@
     </div>
   </div>
 
+    <div class="row">
+    <div id="loadGoals" class="center-block btn btn-success" style="margin-top: 20px">
+      <p>CLICK ME TO LOAD!</p>
+    </div>
+  </div>
+
+<!--   <div id="renderGoals"></div> -->
+
 <div class='container'>
 <legend>Goal</legend>
 <div class='row col-xs-6'>
@@ -125,31 +133,28 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 <script>
-  Draggable.create("#thing", {type:"x,y", bounds:window, onDragEnd: thingFunction, force3D: true});
+  Draggable.create("#thing", {type:"top,left", bounds:window, force3D: true});
 
     var posX;
     var posY;
 
-  function thingFunction(){
-    posX = Draggable.get('#thing').x;
-    posY = Draggable.get('#thing').y;
-
-    console.log(typeof posX);
-    console.log(typeof posY);
-  }
-
-  $("#thing2").mousedown(function(){
+ // setting things manually here (for testing only)
+  $("#thing2").mousedown(function(){ 
     posX = document.getElementById('input').value;
     posY = document.getElementById('input2').value;
     TweenMax.to("#thing", 0, {x: posX, y: posY});
   })
-
-  var data = ({
-    posX: posX,
-    posY: posY
-  })
-
+// 
   $('#submitButton').mousedown(function(){
+
+
+            posX = Draggable.get('#thing').x;
+            posY = Draggable.get('#thing').y;
+            // posX: and posY: need to remain named as such, as they are used server side
+            var data = ({
+              posX: posX,
+              posY: posY
+            });
 
             $.ajax({
               url: "/api/visionboard/",
@@ -157,7 +162,7 @@
               data: data,
               type:'POST',
               success: function(response){
-                console.log("posting data!", data, response)
+                console.log("posting data!", data, response);
               }.bind(this),
               error: function(xhr, status, err){
                 console.log("not posting data!")
@@ -166,6 +171,31 @@
             })
   })
 
+  $("#loadGoals").mouseup(function(){
+        
+        var goalsArray = [];
+
+        $.ajax({
+            url: 'api/visionboard',
+            method: 'GET',
+          }).done(function(response){
+              goalsArray = response;
+
+            for (var i=0; i < goalsArray.length; i++){
+
+                $("body").append("<div id='goal" + i + "' class='thing center-block' <\div><p>" + goalsArray[i].intention + "</p></div>");
+
+                Draggable.create("#goal"+i, {type:"top,left", force3D: true});
+
+                TweenMax.to("#goal"+i, 0, {top: goalsArray[i].posY, left: goalsArray[i].posX});
+                Draggable.get("#goal"+i).update();
+
+            };
+          });
+
+
+
+  })
 
 
 </script>
