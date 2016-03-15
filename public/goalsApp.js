@@ -1,14 +1,13 @@
-{/*
+/*
 - VisionBoard
 
   - PictureApp
 
   - GoalsApp
     - GoalBoxDisplay
-       - CommentBox
-        - CommentList
+      - CommentList
           - Comment
-        - CommentForm
+      - CommentForm
     - GoalBoxForm
    
 
@@ -18,13 +17,8 @@
 
     
 
- */}
+ */
 
- // get initial state for active goal
-  // define a load comments from server with specific goal id
-  // only display active goal
-  // pass down loadcomments from server to comment box
-  // show current state and pass down information
 
 var GoalsApp = React.createClass({
 

@@ -5,10 +5,9 @@
 
   - GoalsApp
     - GoalBoxDisplay
-       - CommentBox
-        - CommentList
+      - CommentList
           - Comment
-        - CommentForm
+      - CommentForm
     - GoalBoxForm
    
 
@@ -55,21 +54,6 @@ var VisionBoard = React.createClass ({
       })
     })
   },
-
-  /*loadCommentsFromServer: function(){
-    console.log("some commmentsssssssss");
-    var self = this; 
-    var id = this.state.goals._id;
-    $.ajax({
-      url: this.props.urlGoal + id +'/comment',
-      method: 'GET',
-    }).done(function(comment){
-      console.log(comment)
-      self.setState({ 
-        comments: comment
-      })
-    })
-  },*/
 
   handleGoalFormSubmit: function(goal) {
     var self = this;

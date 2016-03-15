@@ -1,14 +1,13 @@
-{/*
+/*
 - VisionBoard
 
   - PictureApp
 
   - GoalsApp
     - GoalBoxDisplay
-       - CommentBox
-        - CommentList
+      - CommentList
           - Comment
-        - CommentForm
+      - CommentForm
     - GoalBoxForm
    
 
@@ -16,7 +15,9 @@
     - UserBioDisplay
     - UserBioForm
 
- */}
+    
+
+ */
 
 
 var GoalBoxDisplay = React.createClass({

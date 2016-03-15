@@ -1,14 +1,13 @@
-{/*
+/*
 - VisionBoard
 
   - PictureApp
 
   - GoalsApp
     - GoalBoxDisplay
-       - CommentBox
-        - CommentList
+      - CommentList
           - Comment
-        - CommentForm
+      - CommentForm
     - GoalBoxForm
    
 
@@ -16,8 +15,9 @@
     - UserBioDisplay
     - UserBioForm
 
- */}
- 
+    
+
+ */
 
 var UserBioForm = React.createClass({
 	getInitialState: function(){
