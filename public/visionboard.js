@@ -143,7 +143,7 @@ var VisionBoard = React.createClass ({
 });
 
 
-React.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/'  />,
+React.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/' urlGoal='/api/visionboard' />,
  document.getElementById('visionboard'));
 
 
