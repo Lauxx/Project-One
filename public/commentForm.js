@@ -20,7 +20,7 @@
 
 
 var CommentForm = React.createClass({
-  /*getInitialState: function(){
+  getInitialState: function(){
     return {body: ''}
   },
 
@@ -35,17 +35,17 @@ var CommentForm = React.createClass({
     if(!body){
       return;
     }
-    this.props.ableToSubmitComment({body: body});
+    this.props.ableToSubmitComment({body: body }, this.props.id );
     this.setState({body: ''});
-  },*/
+  },
 
 	render: function(){
 		return(
 
 			<div className="container">
 			 <div className="row col-xs-4">
-        <form method='POST' role='form' >
-			     <textarea className="form" rows="5"  
+        <form onSubmit={ this.handleComment } role='form' >
+			     <textarea className="form" rows="5" value={ this.state.body } onChange={ this.handleBodyChange } 
            placeholder='Add comments here!' id="comment"></textarea>
             <button>Submit Comment</button>
          </form>   

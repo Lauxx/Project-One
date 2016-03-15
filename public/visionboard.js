@@ -17,7 +17,7 @@
     - UserBioForm
  */
 
-console.log('do anything please');
+
 var VisionBoard = React.createClass ({
   getInitialState: function() {
     return {
@@ -29,7 +29,7 @@ var VisionBoard = React.createClass ({
   },
 
   loadUserFromServer: function() {
-    console.log('going somewhere?')
+    
     var self = this; 
     $.ajax({
       url: this.props.url,
@@ -42,14 +42,14 @@ var VisionBoard = React.createClass ({
   },
 
   loadGoalsFromServer: function(){
-    console.log("Doing some goals!")
+    
     var self = this;
     var id = this.state.user._id;
     $.ajax({
       url: this.props.urlVision + id,
       method: 'GET',
     }).done(function(goal){
-      console.log(goal)
+   
       self.setState({
         goals: goal
       })
@@ -73,7 +73,7 @@ var VisionBoard = React.createClass ({
 
   handleGoalFormSubmit: function(goal) {
     var self = this;
-    console.log(goal);
+   
     $.ajax({
       url: this.props.urlGoal,
       dataType: 'json',
@@ -101,17 +101,16 @@ var VisionBoard = React.createClass ({
   },*/
 
   handleUserBioFormSubmit: function(userBio) {
-    console.log("I am being called!!", userBio);
+    
     var self = this;
     var id = this.state.user._id;
-    console.log(id);
+    
     $.ajax({
       url: this.props.url + id,
       dataType: 'json',
       type: 'PUT',
       data: userBio,
       success: function(data){
-        console.log(data, "SOME DATA!!");
         this.loadUserFromServer();
       }.bind(this),
       error: function(xhr, status, err){
@@ -120,7 +119,7 @@ var VisionBoard = React.createClass ({
     });
   },
 
-  /*handleCommentFormSubmit: function(comment){
+  handleCommentFormSubmit: function(comment){
     console.log("I AM BEING CALLED", comment);
     var self = this;
     var id = this.state.goals._id;
@@ -138,7 +137,7 @@ var VisionBoard = React.createClass ({
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
-  },*/
+  },
 
 
   componentDidMount: function() {
@@ -160,7 +159,7 @@ var VisionBoard = React.createClass ({
 });
 
 
-React.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/' urlGoal='/api/visionboard/' />,
+React.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/'  />,
  document.getElementById('visionboard'));
 
 

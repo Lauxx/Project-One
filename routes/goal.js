@@ -118,7 +118,7 @@ router.route('/visionboard/:goal_id/comment')
       var comment = new Comment();
 
       comment.body = req.body.body ? req.body.body : comment.body;
-      comment.user = '56e8373c858bbeca3e223a9c';
+      comment.user = req.user._id;
       comment.goal = req.params.goal_id;
 
       comment.save(function(err, comm){

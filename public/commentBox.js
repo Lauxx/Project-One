@@ -22,10 +22,10 @@
 var CommentBox = React.createClass({
   
 	render: function(){
+    console.log(this.props.comments)
 		return(
 			<div>
-			<CommentList comments={this.props.commentsArray}/>
-			<CommentForm />
+			<CommentList comments={ this.props.comments }/>
 			</div>
 			)
 	}
