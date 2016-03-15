@@ -5,11 +5,12 @@
 
   - GoalsApp
     - GoalBoxDisplay
+       - CommentBox
+        - CommentList
+          - Comment
+        - CommentForm
     - GoalBoxForm
-    - CommentBox
-      - CommentList
-        - Comment
-      - CommentForm
+   
 
   - UserBioApp
     - UserBioDisplay
@@ -33,7 +34,7 @@ var GoalsApp = React.createClass({
 
 
 
-  loadCommentsFromServer: function(){
+  /*loadCommentsFromServer: function(){
     console.log("some commmentsssssssss");
     var self = this; 
     var id = this.state.goal._id;
@@ -46,14 +47,33 @@ var GoalsApp = React.createClass({
         comments: comment
       })
     })
+  },*/
+
+  getInitialState: function() {
+   
+    return { 
+      activeGoal: "56e763c45823f9c63aacc492"
+    }
   },
 
   handleLinkClick: function(id) {
+    this.setState({ activeGoal: id });
     console.log(id);
   },
 	
+  showGoal: function (item, id) {
+    if (this.state.activeGoal == id) {
+       return item;
+     } 
+   
+    /*return goal with id = to activeGoal;*/
+  },
+
+
+
   render: function() {
     var self = this;
+    var gid = " ";
     var links = this.props.goals.map(function(l){
       return (
         <div>
@@ -63,6 +83,8 @@ var GoalsApp = React.createClass({
     })
     window.thing = this.props.goals;
     var gb = this.props.goals.map(function(g){
+      console.log(g._id)
+     gid = g._id;
       if(g.comments.length > 0){
         var comments = g.comments;
       } else {
@@ -70,13 +92,15 @@ var GoalsApp = React.createClass({
       };
          return (
           <div>
-          <GoalBoxDisplay intention={g.intention} taskList={g.taskList}
+          {gid}
+          <GoalBoxDisplay id={g._id} activeGoal={self.state.activeGoal} intention={g.intention} taskList={g.taskList}
           startDate={g.startDate} endDate={g.endDate}/>
-          <CommentBox ableToComment={ this.props.handleCommentSubmit} commentsArray={g.comments} />
+          <CommentBox  commentsArray={g.comments} />
           </div>
           )
     })
 
+      console.log(gid);
     return (
       <div>
         <nav className="navbar navbar-inverse">

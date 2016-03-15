@@ -5,11 +5,12 @@
 
   - GoalsApp
     - GoalBoxDisplay
+       - CommentBox
+        - CommentList
+          - Comment
+        - CommentForm
     - GoalBoxForm
-    - CommentBox
-      - CommentList
-        - Comment
-      - CommentForm
+   
 
   - UserBioApp
     - UserBioDisplay
@@ -19,7 +20,7 @@
 
 
 var CommentForm = React.createClass({
-  getInitialState: function(){
+  /*getInitialState: function(){
     return {body: ''}
   },
 
@@ -36,15 +37,15 @@ var CommentForm = React.createClass({
     }
     this.props.ableToSubmitComment({body: body});
     this.setState({body: ''});
-  },
+  },*/
 
 	render: function(){
 		return(
 
 			<div className="container">
 			 <div className="row col-xs-4">
-        <form method='POST' role='form' onSubmit={this.handleComment}>
-			     <textarea className="form" rows="5" value={this.state.body} onChange={this.handleBodyChange} 
+        <form method='POST' role='form' >
+			     <textarea className="form" rows="5"  
            placeholder='Add comments here!' id="comment"></textarea>
             <button>Submit Comment</button>
          </form>   

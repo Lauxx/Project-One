@@ -5,11 +5,12 @@
 
   - GoalsApp
     - GoalBoxDisplay
+       - CommentBox
+        - CommentList
+          - Comment
+        - CommentForm
     - GoalBoxForm
-    - CommentBox
-      - CommentList
-        - Comment
-      - CommentForm
+   
 
   - UserBioApp
     - UserBioDisplay

@@ -5,11 +5,12 @@
 
   - GoalsApp
     - GoalBoxDisplay
+       - CommentBox
+        - CommentList
+          - Comment
+        - CommentForm
     - GoalBoxForm
-    - CommentBox
-      - CommentList
-        - Comment
-      - CommentForm
+   
 
   - UserBioApp
     - UserBioDisplay
@@ -24,7 +25,7 @@ var CommentBox = React.createClass({
 		return(
 			<div>
 			<CommentList comments={this.props.commentsArray}/>
-			<CommentForm ableToSubmitComment={this.props.ableToComment}/>
+			<CommentForm />
 			</div>
 			)
 	}

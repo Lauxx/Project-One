@@ -5,16 +5,16 @@
 
   - GoalsApp
     - GoalBoxDisplay
+       - CommentBox
+        - CommentList
+          - Comment
+        - CommentForm
     - GoalBoxForm
-    - CommentBox
-      - CommentList
-        - Comment
-      - CommentForm
+   
 
   - UserBioApp
     - UserBioDisplay
     - UserBioForm
-
  */
 
 console.log('do anything please');
@@ -23,7 +23,7 @@ var VisionBoard = React.createClass ({
     return {
       user: {},
       goals: [],
-      comments: [],
+
 
     }
   },
@@ -56,7 +56,7 @@ var VisionBoard = React.createClass ({
     })
   },
 
-  loadCommentsFromServer: function(){
+  /*loadCommentsFromServer: function(){
     console.log("some commmentsssssssss");
     var self = this; 
     var id = this.state.goals._id;
@@ -69,7 +69,7 @@ var VisionBoard = React.createClass ({
         comments: comment
       })
     })
-  },
+  },*/
 
   handleGoalFormSubmit: function(goal) {
     var self = this;
@@ -120,7 +120,7 @@ var VisionBoard = React.createClass ({
     });
   },
 
-  handleCommentFormSubmit: function(comment){
+  /*handleCommentFormSubmit: function(comment){
     console.log("I AM BEING CALLED", comment);
     var self = this;
     var id = this.state.goals._id;
@@ -138,13 +138,12 @@ var VisionBoard = React.createClass ({
         console.error(this.props.url, status, err.toString());
       }.bind(this)
     });
-  },
+  },*/
 
 
   componentDidMount: function() {
     this.loadUserFromServer();
     this.loadGoalsFromServer();
-    this.loadCommentsFromServer();
   },
 
   render: function() {
@@ -153,8 +152,7 @@ var VisionBoard = React.createClass ({
         <div>
 
           <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit }/>
-          <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } 
-          handleCommentSubmit={ this.handleCommentFormSubmit }/>
+          <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } />
 
         </div>
       )

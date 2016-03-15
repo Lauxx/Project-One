@@ -118,7 +118,7 @@ router.route('/visionboard/:goal_id/comment')
       var comment = new Comment();
 
       comment.body = req.body.body ? req.body.body : comment.body;
-      comment.user = '56df6149fa9dff1e9be93c83';
+      comment.user = '56e8373c858bbeca3e223a9c';
       comment.goal = req.params.goal_id;
 
       comment.save(function(err, comm){
@@ -140,7 +140,7 @@ router.route('/visionboard/:goal_id/comment')
 
   .get(function(req, res){
     Goal.findById(req.params.goal_id)
-      .populate('author')
+   
       .populate('comments')
       .populate({
        path: 'comments',
@@ -167,6 +167,31 @@ router.route('/visionboard/:goal_id/comment')
       }
     })
   });
+
+
+
+  router.route('/visionboard/comment')
+    .get(function(req, res, next){
+      Comment.find()
+        .populate('user')
+        .populate('goal')
+        .populate({
+          path: 'goal',
+          populate: {
+            path: 'comments',
+          }
+        })
+        .exec(function(err, comment){
+          if(err){
+              console.log(err);
+              next();
+          } else {
+              res.json(comment);
+          }
+        });
+    })
+
+
 
   module.exports = router;
 
