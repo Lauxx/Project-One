@@ -15,11 +15,10 @@
  */
 var GoalBoxForm = require('./goalBoxForm');
 var GoalBoxDisplay = require('./goalBoxDisplay');
+
 var React = require('react');
 
 var GoalsApp = React.createClass({
-
-  
 
   getInitialState: function() {
     return { 
@@ -61,7 +60,8 @@ var GoalsApp = React.createClass({
          return (
           <div>
       
-          <GoalBoxDisplay urlGoal='/api/visionboard/' id={g._id} activeGoal={self.state.activeGoal} 
+          <GoalBoxDisplay urlGoal='/api/visionboard/' id={g._id} activeGoal={self.state.activeGoal}
+          loadGoalsFromServer={ self.props.loadGoalsFromServer } 
           intention={g.intention} taskList={g.taskList}
           startDate={g.startDate} endDate={g.endDate} commentsArray={g.comments} />
             
@@ -84,7 +84,6 @@ var GoalsApp = React.createClass({
            </div>
          </nav>
         {gb}
-
         <GoalBoxForm ableToSubmit={this.props.handleGoalSubmit} ableToDelete={this.props.handleGoalDelete} />
        </div>     
       )
