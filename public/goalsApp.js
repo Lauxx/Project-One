@@ -33,8 +33,6 @@ var GoalsApp = React.createClass({
     if (this.state.activeGoal == id) {
        return item;
      } 
-   
-    /*return goal with id = to activeGoal;*/
   },
 
 
