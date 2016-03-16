@@ -40,7 +40,6 @@ var GoalBoxDisplay = React.createClass({
 
   handleCommentFormSubmit: function(comment, id){
     console.log("I AM BEING CALLED", comment);
-    var self = this;
     $.ajax({
       url: this.props.urlGoal + id +'/comment',
       dataType: 'json',
@@ -49,6 +48,7 @@ var GoalBoxDisplay = React.createClass({
       success: function(data){
         console.log(data, 'this is comment data');
         this.loadCommentsFromServer();
+        this.props.loadGoalsFromServer();
       }.bind(this),
       error: function(xhr, status, err){
         console.error(this.props.url, status, err.toString());
@@ -62,11 +62,14 @@ var GoalBoxDisplay = React.createClass({
   },
 
 	render: function(){
+    console.log(this.props.commentsArray);
+
+    var self = this;
     var comm = this.props.commentsArray.map(function(c){
          return (
           <div>
           <ul>
-          <li> {c.user} </li>
+          <li> {c.user.local.username} </li>
           <li> {c.body} </li> 
           <li> {c.date} </li>
           </ul>
@@ -101,7 +104,8 @@ var GoalBoxDisplay = React.createClass({
                 </ul> 
                {comm}
               
-               <CommentForm id={ this.props.id } ableToSubmitComment={this.handleCommentFormSubmit} />     
+               <CommentForm id={ this.props.id } 
+                handleCommentFormSubmit={this.handleCommentFormSubmit} />     
               </div>
             </div>
           </div> 

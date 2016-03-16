@@ -27,11 +27,11 @@ var CommentForm = React.createClass({
   handleComment: function (e){
     e.preventDefault();
     var body = this.state.body.trim();
-    console.log(body)
+    console.log(body, 'this is the comment');
     if(!body){
       return;
     }
-    this.props.ableToSubmitComment({body: body }, this.props.id );
+    this.props.handleCommentFormSubmit({ body: body }, this.props.id );
     this.setState({body: ''});
   },
 
@@ -40,10 +40,10 @@ var CommentForm = React.createClass({
 
 			<div className="container">
 			 <div className="row col-xs-4">
-        <form onSubmit={ this.handleComment } role='form' >
+        <form action='' method='POST' onSubmit={ this.handleComment } role='form' >
 			     <textarea className="form" rows="5" value={ this.state.body } onChange={ this.handleBodyChange } 
            placeholder='Add comments here!' id="comment"></textarea>
-            <button>Submit Comment</button>
+            <button type='submit' >Submit Comment</button>
          </form>   
         </div>
       </div>

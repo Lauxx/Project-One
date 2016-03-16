@@ -50,12 +50,17 @@ router.route('/visionboard')
     });
   })
 
-router.route('/visionboard/goal/:user_id') //ask Doug
+router.route('/visionboard/goal/:user_id')
   .get(function(req, res, next){
       Goal.find(req.params.user_id)
       .populate('author')
-      .populate('comments')
-      .populate('user')
+      .populate({
+       path: 'comments',
+       populate: {
+         path: 'user',
+         select: 'local.email local.username',
+          }
+        })
       .exec(function(err, goal){
         if (err){
           console.log(err);
@@ -141,11 +146,11 @@ router.route('/visionboard/:goal_id/comment')
   .get(function(req, res){
     Goal.findById(req.params.goal_id)
    
-      .populate('comments')
       .populate({
        path: 'comments',
        populate: {
          path: 'user',
+         select: 'local.email',
           }
         })
       .exec(function(err, goal){

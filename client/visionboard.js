@@ -24,7 +24,6 @@ var VisionBoard = React.createClass ({
       user: {},
       goals: [],
 
-
     }
   },
 
@@ -104,26 +103,6 @@ var VisionBoard = React.createClass ({
     });
   },
 
-  handleCommentFormSubmit: function(comment){
-    console.log("I AM BEING CALLED", comment);
-    var self = this;
-    var id = this.state.goals._id;
-    console.log(id);
-    $.ajax({
-      url: this.props.urlGoal + id +'/comment',
-      dataType: 'json',
-      type: 'POST',
-      data: comment,
-      success: function(data){
-        console.log(data, 'this is comment data');
-        this.loadCommentsFromServer();
-      }.bind(this),
-      error: function(xhr, status, err){
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    });
-  },
-
 
   componentDidMount: function() {
     this.loadUserFromServer();
@@ -136,7 +115,8 @@ var VisionBoard = React.createClass ({
         <div>
 
           <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit }/>
-          <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } />
+          <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } 
+                    loadGoalsFromServer={ this.loadGoalsFromServer } />
  
         </div>
       )
