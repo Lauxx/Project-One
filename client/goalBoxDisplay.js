@@ -66,10 +66,11 @@ var GoalBoxDisplay = React.createClass({
 
     var self = this;
     var comm = this.props.commentsArray.map(function(c){
+      var username = c.user ? c.user.local.username : 'no user';
          return (
           <div>
           <ul>
-          <li> {c.user.local.username} </li>
+          <li> {username} </li>
           <li> {c.body} </li> 
           <li> {c.date} </li>
           </ul>
