@@ -13,7 +13,10 @@
     - UserBioDisplay
     - UserBioForm
  */
-
+var UserBioApp = require('./userBioApp');
+var GoalsApp = require('./goalsApp');
+var React = require('react');
+var ReactDOM = require('react-dom');
 
 var VisionBoard = React.createClass ({
   getInitialState: function() {
@@ -134,15 +137,17 @@ var VisionBoard = React.createClass ({
 
           <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit }/>
           <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } />
-
+ 
         </div>
       )
   }
 });
 
 
-React.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/' urlGoal='/api/visionboard' />,
+ReactDOM.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/' urlGoal='/api/visionboard' />,
  document.getElementById('visionboard'));
+
+
 
 
 

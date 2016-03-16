@@ -13,6 +13,7 @@
     - UserBioDisplay
     - UserBioForm
  */
+var React = require('react');
 
 var UserBioForm = React.createClass({
 	getInitialState: function(){
@@ -75,3 +76,5 @@ var UserBioForm = React.createClass({
 			)
 	}
 });
+
+module.exports = UserBioForm;

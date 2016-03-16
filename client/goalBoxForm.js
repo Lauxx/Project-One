@@ -13,7 +13,7 @@
     - UserBioDisplay
     - UserBioForm
  */
-
+var React = require('react');
 
 var GoalBoxForm = React.createClass({
   getInitialState: function() {
@@ -89,3 +89,5 @@ var GoalBoxForm = React.createClass({
 			)
 	}
 });
+
+module.exports = GoalBoxForm;

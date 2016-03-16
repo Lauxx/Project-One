@@ -13,7 +13,9 @@
     - UserBioDisplay
     - UserBioForm
  */
-
+var GoalBoxForm = require('./goalBoxForm');
+var GoalBoxDisplay = require('./goalBoxDisplay');
+var React = require('react');
 
 var GoalsApp = React.createClass({
 
@@ -91,5 +93,5 @@ var GoalsApp = React.createClass({
 
 });
 
-
+module.exports = GoalsApp;
 

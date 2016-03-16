@@ -13,7 +13,7 @@
     - UserBioDisplay
     - UserBioForm
  */
-
+var React = require('react');
 
 var CommentForm = React.createClass({
   getInitialState: function(){
@@ -50,3 +50,5 @@ var CommentForm = React.createClass({
 			)
 	}
 });
+
+module.exports = CommentForm;

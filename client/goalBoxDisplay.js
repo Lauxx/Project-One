@@ -13,7 +13,8 @@
     - UserBioDisplay
     - UserBioForm
  */
-
+var CommentForm = require('./commentForm');
+var React = require('react');
 
 var GoalBoxDisplay = React.createClass({
   getInitialState: function(){
@@ -120,3 +121,5 @@ var GoalBoxDisplay = React.createClass({
       ) 
   }
 });
+
+module.exports = GoalBoxDisplay;

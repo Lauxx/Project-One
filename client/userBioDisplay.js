@@ -13,7 +13,7 @@
     - UserBioDisplay
     - UserBioForm
  */
- 
+ var React = require('react');
 
 var UserBioDisplay = React.createClass({
   
@@ -35,3 +35,5 @@ var UserBioDisplay = React.createClass({
 			)
 	}
 });
+
+module.exports = UserBioDisplay;
