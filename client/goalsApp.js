@@ -64,7 +64,7 @@ var GoalsApp = React.createClass({
           loadGoalsFromServer={ self.props.loadGoalsFromServer } 
           intention={g.intention} taskList={g.taskList}
           startDate={g.startDate} endDate={g.endDate} commentsArray={g.comments} />
-            
+          
           </div>
           )
     })

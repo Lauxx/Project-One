@@ -120,9 +120,6 @@ var GoalBoxDisplay = React.createClass({
         
       </div>
 
-
-
-
       ) 
   }
 });
