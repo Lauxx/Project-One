@@ -5,8 +5,6 @@
 
   - GoalsApp
     - GoalBoxDisplay
-      - CommentList
-          - Comment
       - CommentForm
     - GoalBoxForm
    

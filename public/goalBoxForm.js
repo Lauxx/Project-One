@@ -1,22 +1,18 @@
-{/*
+/*
 - VisionBoard
 
   - PictureApp
 
   - GoalsApp
     - GoalBoxDisplay
-       - CommentBox
-        - CommentList
-          - Comment
-        - CommentForm
+      - CommentForm
     - GoalBoxForm
    
 
   - UserBioApp
     - UserBioDisplay
     - UserBioForm
-
- */}
+ */
 
 
 var GoalBoxForm = React.createClass({

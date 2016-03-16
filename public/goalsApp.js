@@ -5,8 +5,6 @@
 
   - GoalsApp
     - GoalBoxDisplay
-      - CommentList
-          - Comment
       - CommentForm
     - GoalBoxForm
    
@@ -14,9 +12,6 @@
   - UserBioApp
     - UserBioDisplay
     - UserBioForm
-
-    
-
  */
 
 
