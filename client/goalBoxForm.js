@@ -17,7 +17,13 @@ var React = require('react');
 
 var GoalBoxForm = React.createClass({
   getInitialState: function() {
-    return {intention: '', startDate: '', endDate: '', taskList: ''};
+    return {
+     intention: '',
+     startDate: '', 
+     endDate: '', 
+     taskList: [],
+     task: ''
+   };
   },
 
   handleIntentionChange: function(e) {
@@ -32,28 +38,64 @@ var GoalBoxForm = React.createClass({
     this.setState({endDate: e.target.value});
   },
 
-  handleTaskListChange: function(e) {
-    this.setState({taskList: e.target.value});
+  handleTaskChange: function(e) {
+    this.setState({task: e.target.value});
+  },
+
+  myArr: [],
+
+  handleTaskSubmit: function(e) {
+    e.preventDefault();
+    var task = this.state.task;
+
+    this.myArr.push(task);
+    console.log(this.myArr);
+    this.setState({task: ""});
+
   },
 
   handleSubmit: function(e) {
     e.preventDefault();
+    this.setState({taskList: this.myArr});
     var intention = this.state.intention.trim();
     var startDate = this.state.startDate.trim();
     var endDate = this.state.endDate.trim();
-    var taskList = this.state.taskList.trim();
+    var taskList = this.state.taskList;
     
-      console.log(intention, startDate, endDate, taskList);
+      console.log(intention, startDate, endDate, taskList, this.myArr);
 
     if(!intention && !startDate && !taskList) {
       return;
     }
     this.props.ableToSubmit({intention: intention, startDate: startDate, endDate: endDate, taskList: taskList});
-    this.setState({intention: '', startDate: '', endDate: '', taskList: ''})
+    this.setState({intention: '', startDate: '', endDate: '', taskList: ''});
+    this.myArr.length = 0;
 
   },
 
+
 	render: function(){
+
+    var tL = this.myArr.map(function(t){
+      return(
+        <div>
+          <ul>
+            <li>{t}</li>
+
+          </ul>
+
+
+        </div>
+
+
+        )
+    });
+
+
+
+
+
+    
 		return(
 			<div className="">
 				<div className='container'>
@@ -76,9 +118,12 @@ var GoalBoxForm = React.createClass({
                     onChange={this.handleEndDateChange} required="required" title=""/>
 				         	</div>
 				         	<br/>
+                  <div>
+                    {tL}
+                  </div>
 				         	<div className="row">
-				         		<input value={this.state.taskList} onChange={this.handleTaskListChange} placeholder="Enter your task here"></input>
-				        		<button type="submit" className="btn btn-primary">Add Task</button><br/><br/>
+				         		<input value={this.state.task} onChange={this.handleTaskChange} placeholder="Enter your task here"></input>
+				        		<button type="submit" onClick={this.handleTaskSubmit} className="btn btn-primary">Add Task</button><br/><br/>
 				        		<button type="submit" className="btn btn-primary" >Submit</button>
 				        	</div>
 				  		</form>

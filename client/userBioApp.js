@@ -16,6 +16,7 @@
  var UserBioDisplay = require('./userBioDisplay');
  var UserBioForm = require('./userBioForm');
  var React = require('react');
+ 
 
 var UserBioApp = React.createClass({
 	render: function(){
