@@ -64,7 +64,7 @@ var GoalsApp = React.createClass({
           <GoalBoxDisplay urlGoal='/api/visionboard/' id={g._id} activeGoal={self.state.activeGoal} 
           intention={g.intention} taskList={g.taskList}
           startDate={g.startDate} endDate={g.endDate} commentsArray={g.comments} />
-            
+          
           </div>
           )
     })
