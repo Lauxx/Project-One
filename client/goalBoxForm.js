@@ -51,12 +51,12 @@ var GoalBoxForm = React.createClass({
     this.myArr.push(task);
     console.log(this.myArr);
     this.setState({task: ""});
+    this.setState({ taskList: this.myArr});
 
   },
 
   handleSubmit: function(e) {
     e.preventDefault();
-    this.setState({taskList: this.myArr});
     var intention = this.state.intention.trim();
     var startDate = this.state.startDate.trim();
     var endDate = this.state.endDate.trim();

@@ -65,18 +65,30 @@ var GoalBoxDisplay = React.createClass({
     console.log(this.props.commentsArray);
 
     var self = this;
+    var task = this.props.taskList.map(function(t){
+      return (
+        <div>
+          <ul>
+            <li className='checkbox' >{ t }<label><input type="checkbox" value=""/></label>
+            </li>
+          </ul>
+        </div>
+
+        )
+    })
     var comm = this.props.commentsArray.map(function(c){
       var username = c.user ? c.user.local.username : 'no user';
          return (
           <div>
-          <ul>
-          <li> {username} </li>
-          <li> {c.body} </li> 
-          <li> {c.date} </li>
-          </ul>
+            <ul>
+              <li> {username} </li>
+              <li> {c.body} </li> 
+              <li> {c.date} </li>
+            </ul>
           </div>
        )
     });
+
     if (this.props.activeGoal == this.props.id ) {
       var self = this;
     return(
@@ -97,23 +109,19 @@ var GoalBoxDisplay = React.createClass({
                 {this.props.endDate}
               </div>
               <div className='row'>
-                <ul>
-                  <li className='checkbox'>
-                    {this.props.taskList}
-                    <label><input type="checkbox" value=""/></label>
-                  </li>
-                </ul> 
-               {comm}
-              
+                { task } 
+              <div>
+              </div>
+                { comm }
+              </div>
                <CommentForm id={ this.props.id } 
                 handleCommentFormSubmit={this.handleCommentFormSubmit} />     
               </div>
             </div>
           </div> 
         </div>
-      </div>
       )
-  }
+    }
     return (
 
       <div>
