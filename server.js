@@ -7,7 +7,19 @@ var session = require('express-session');
 var flash = require('connect-flash');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/practice');
+
+var uriUtil = require('mongodb-uri');
+
+var options = {
+server:  { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } },
+replset: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }
+};  
+var mongodbUri = process.env.MONGOLAB_URI || "mongodb://localhost/practice";
+var mongooseUri = uriUtil.formatMongoose(mongodbUri);
+
+mongoose.connect(mongooseUri, options);
+
+
 var port = process.env.PORT || 8000;
 var instaRouter = require('./routes/instagram');
 
