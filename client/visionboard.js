@@ -24,7 +24,7 @@ var VisionBoard = React.createClass ({
     return {
       user: {},
       goals: [],
-      imageUrl: [],
+      imageUrls: [],
     }
   },
 
@@ -62,10 +62,11 @@ var VisionBoard = React.createClass ({
     $.ajax({
       url: this.props.urlPicture + id,
       method: 'GET',
-    }).done(function(image){
-      console.log(image);
+    }).done(function(data){
+      console.log(data[0].imageUrl);
+      var imgs = data[0].imageUrl;
       self.setState({
-        imageUrl: image 
+        imageUrls: imgs
       })
     })
   },
@@ -129,7 +130,7 @@ var VisionBoard = React.createClass ({
     
     return (
         <div>
-          <PictureBoardDisplay loadImageUrlFromServer = { this.loadImageUrlFromServer } imagesArr={ this.state.imageUrl }/>
+          <PictureBoardDisplay loadImageUrlFromServer = { this.loadImageUrlFromServer } imagesArr={ this.state.imageUrls }/>
           <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit }/>
           <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } 
                     loadGoalsFromServer={ this.loadGoalsFromServer } />
