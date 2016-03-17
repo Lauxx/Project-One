@@ -21,7 +21,8 @@ mongoose.connect(mongooseUri, options);
 
 
 var port = process.env.PORT || 8000;
-
+var PictureBoard = require('./models/pictureBoard');
+var pictureBoardRouter = require('./routes/pictureBoard');
 
 var Goal = require('./models/goal');
 var goalRouter = require('./routes/goal');
@@ -102,7 +103,7 @@ app.get('/visionboard', function(req, res){
 
 
 app.use('/api', goalRouter);
-
+app.use('/api', pictureBoardRouter);
 app.listen(port);
 console.log('winning on ' + port);
 
