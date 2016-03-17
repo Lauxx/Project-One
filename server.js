@@ -21,7 +21,7 @@ mongoose.connect(mongooseUri, options);
 
 
 var port = process.env.PORT || 8000;
-var instaRouter = require('./routes/instagram');
+
 
 var Goal = require('./models/goal');
 var goalRouter = require('./routes/goal');
@@ -100,7 +100,7 @@ app.get('/visionboard', function(req, res){
   res.render('visionboard', {user: user})
 });
 
-app.use('/', instaRouter);
+
 app.use('/api', goalRouter);
 
 app.listen(port);
