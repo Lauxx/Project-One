@@ -15,6 +15,7 @@
  */
 var UserBioApp = require('./userBioApp');
 var GoalsApp = require('./goalsApp');
+var PictureBoardDisplay = require('./pictureBoardDisplay');
 var React = require('react');
 var ReactDOM = require('react-dom');
 
@@ -23,7 +24,7 @@ var VisionBoard = React.createClass ({
     return {
       user: {},
       goals: [],
-
+      imageUrl: [],
     }
   },
 
@@ -51,6 +52,20 @@ var VisionBoard = React.createClass ({
    
       self.setState({
         goals: goal
+      })
+    })
+  },
+
+  loadImageUrlFromServer: function(){
+    var self = this;
+    var id = this.state.user._id;
+    $.ajax({
+      url: this.props.urlPicture + id,
+      method: 'GET',
+    }).done(function(image){
+      console.log(image);
+      self.setState({
+        imageUrl: image 
       })
     })
   },
@@ -107,16 +122,18 @@ var VisionBoard = React.createClass ({
   componentDidMount: function() {
     this.loadUserFromServer();
     this.loadGoalsFromServer();
+    this.loadImageUrlFromServer();
   },
 
   render: function() {
     
     return (
         <div>
-
+          <PictureBoardDisplay loadImageUrlFromServer = { this.loadImageUrlFromServer } imagesArr={ this.state.imageUrl }/>
           <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit }/>
           <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } 
                     loadGoalsFromServer={ this.loadGoalsFromServer } />
+          
  
         </div>
       )
@@ -124,7 +141,7 @@ var VisionBoard = React.createClass ({
 });
 
 
-ReactDOM.render(<VisionBoard url='/api/user/' urlVision='/api/visionboard/goal/' urlGoal='/api/visionboard' />,
+ReactDOM.render(<VisionBoard url='/api/user/' urlPicture='/api/pictureboard/' urlVision='/api/visionboard/goal/' urlGoal='/api/visionboard' />,
  document.getElementById('visionboard'));
 
 

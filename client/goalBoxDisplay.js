@@ -62,7 +62,7 @@ var GoalBoxDisplay = React.createClass({
   },
 
 	render: function(){
-    console.log(this.props.commentsArray);
+    
 
     var self = this;
     var task = this.props.taskList.map(function(t){

@@ -19,7 +19,7 @@ router.route('/pictureboard/:user_id')
 		var picture = new PictureBoard();
 
 		picture.imageUrl = req.body.imageUrl || "none";
-		picture.user = req.user ? req.user._id : '56df6149fa9dff1e9be93c83'
+		picture.user = req.user ? req.user._id : '56e88d7eba12140605b07645'
 		console.log(picture);
 
 		picture.save(function(err, image){
