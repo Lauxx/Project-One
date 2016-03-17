@@ -15,6 +15,26 @@ router.route('/pictureboard/:user_id')
 		});
 	})
 
+	.put(function (req, res, next){
+		PictureBoard.findById(req.params.user_id, function(err, image){
+			if(err){
+				console.log(err);
+				next();
+			} else {
+				image.imageUrl = req.body.imageUrl ? req.body.imageUrl : image.imageUrl;
+
+				image.save(function(err, image){
+					if (err){
+						console.log(err);
+						next();
+					} else {
+						res.json ({message: "image updated!"})
+					}
+				})
+			}
+		});
+	})
+
 	.post(function(req, res){
 		var picture = new PictureBoard();
 

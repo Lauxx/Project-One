@@ -16,6 +16,7 @@
 var UserBioApp = require('./userBioApp');
 var GoalsApp = require('./goalsApp');
 var PictureBoardDisplay = require('./pictureBoardDisplay');
+var PictureBoardForm = require('./pictureBoardForm');
 var React = require('react');
 var ReactDOM = require('react-dom');
 
@@ -119,6 +120,14 @@ var VisionBoard = React.createClass ({
     });
   },
 
+ /* handlePictureBoardFormSubmit: function(image){
+    var self = this;
+    $.ajax ({
+      url: 
+    })
+  } 
+ */
+
 
   componentDidMount: function() {
     this.loadUserFromServer();
@@ -131,6 +140,7 @@ var VisionBoard = React.createClass ({
     return (
         <div>
           <PictureBoardDisplay loadImageUrlFromServer = { this.loadImageUrlFromServer } imagesArr={ this.state.imageUrls }/>
+          <PictureBoardForm />
           <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit }/>
           <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } 
                     loadGoalsFromServer={ this.loadGoalsFromServer } />

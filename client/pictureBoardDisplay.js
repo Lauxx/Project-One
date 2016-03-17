@@ -1,8 +1,28 @@
+/*
+- VisionBoard
+
+  -PictureBoardDisplay
+  -PictureBoardForm
+
+  - GoalsApp
+    - GoalBoxDisplay
+      - CommentForm
+    - GoalBoxForm
+   
+
+  - UserBioApp
+    - UserBioDisplay
+    - UserBioForm
+ */
+
+
+
+
 var React = require('react');
 
 var PictureBoardDisplay = React.createClass({
 
-
+ 
 
 	render: function(){
 		console.log(this.props.imagesArr);
