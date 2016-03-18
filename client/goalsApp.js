@@ -51,7 +51,7 @@ var GoalsApp = React.createClass({
     
     var gb = this.props.goals.map(function(g){
         
-          gid = g._id;
+      gid = g._id;
       if(g.comments.length > 0){
         var comments = g.comments;
       } else {

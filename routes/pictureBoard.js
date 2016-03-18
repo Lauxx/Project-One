@@ -21,9 +21,9 @@ router.route('/pictureboard/:user_id')
 				console.log(err);
 				next();
 			} else {
-				image.imageUrl = req.body.imageUrl ? req.body.imageUrl : image.imageUrl;
+				picture.imageUrl = req.body.imageUrl ? req.body.imageUrl : picture.imageUrl;
 
-				image.save(function(err, image){
+				picture.save(function(err, image){
 					if (err){
 						console.log(err);
 						next();
@@ -39,7 +39,7 @@ router.route('/pictureboard/:user_id')
 		var picture = new PictureBoard();
 
 		picture.imageUrl = req.body.imageUrl || "none";
-		picture.user = req.user ? req.user._id : '56e88d7eba12140605b07645'
+		picture.user = req.user ? req.user._id : '56e6f2c74dc12465b9bbdf27'
 		console.log(picture);
 
 		picture.save(function(err, image){
