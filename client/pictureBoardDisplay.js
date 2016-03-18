@@ -49,8 +49,8 @@ var PictureBoardDisplay = React.createClass({
     var picName = " ";
 		var allImages = this.props.imagesArr.map(function(image){
 			 return (
-			 			<div className="col-xs-4">
-			 				<img src = { image } height="250px" width="360px"/>
+			 			<div className="col-xs-4 ">
+			 				<img src = { image } height="250px" width="100%"/>
               <a onClick={ self.handlePicClick.bind(this, image) }> clickMe! </a>
 			 			</div>
 
