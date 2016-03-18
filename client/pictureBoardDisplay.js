@@ -30,9 +30,10 @@ var PictureBoardDisplay = React.createClass({
 
   handlePicClick: function(picName) {
     this.setState({ activePicture: picName });
+    
   },
   
-  showPic: function (item, picName) {
+  showPic: function(item, picName){
     if (this.state.activePicture == picName) {
        return item;
      } 
