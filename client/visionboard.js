@@ -13,6 +13,7 @@
     - UserBioDisplay
     - UserBioForm
  */
+
 var UserBioApp = require('./userBioApp');
 var GoalsApp = require('./goalsApp');
 var PictureBoardDisplay = require('./pictureBoardDisplay');
@@ -36,9 +37,13 @@ var VisionBoard = React.createClass ({
       url: this.props.url,
       method: 'GET',
     }).done(function(bio){
+      console.log(bio, 'load users from server');
+      window.blah = bio;
       self.setState({
         user: bio
-      })
+      });
+      self.loadGoalsFromServer();
+      self.loadImageUrlFromServer();
     })
   },
 
@@ -46,11 +51,12 @@ var VisionBoard = React.createClass ({
     
     var self = this;
     var id = this.state.user._id;
+    console.log(this.props.urlVision + id)
     $.ajax({
       url: this.props.urlVision + id,
       method: 'GET',
     }).done(function(goal){
-   
+      console.log(goal, 'load goals from server');
       self.setState({
         goals: goal
       })
@@ -60,12 +66,13 @@ var VisionBoard = React.createClass ({
   loadImageUrlFromServer: function(){
     var self = this;
     var id = this.state.user._id;
+    console.log(id, 'loading imageUrl from server');
     $.ajax({
       url: this.props.urlPicture + id,
       method: 'GET',
     }).done(function(data){
-      console.log(data[0].imageUrl);
-      var imgs = data[0].imageUrl;
+      console.log(data, 'load images from server');
+      var imgs = data.imageUrl;
       self.setState({
         imageUrls: imgs
       })
@@ -89,17 +96,6 @@ var VisionBoard = React.createClass ({
     });
   },
 
-  /*handleGoalDelete: function(id) {
-    var self = this;
-    var id = id;
-    $.ajax({
-      url: '/api/visionboard/' + id
-      method: 'DELETE'
-    }).done(function() {
-      self.loadGoalsFromServer();
-          console.log('deleted goal from server')
-    })
-  },*/
 
   handleUserBioFormSubmit: function(userBio) {
     
@@ -120,23 +116,14 @@ var VisionBoard = React.createClass ({
     });
   },
 
- /* handlePictureBoardFormSubmit: function(image){
-    var self = this;
-    $.ajax ({
-      url: 
-    })
-  } 
- */
-
 
   componentDidMount: function() {
     this.loadUserFromServer();
-    this.loadGoalsFromServer();
-    this.loadImageUrlFromServer();
+
   },
 
   render: function() {
-    
+    console.log(this.state.user);
     return (
         <div>
           <PictureBoardDisplay loadImageUrlFromServer = { this.loadImageUrlFromServer } imagesArr={ this.state.imageUrls }/>

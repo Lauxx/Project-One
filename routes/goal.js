@@ -52,7 +52,7 @@ router.route('/visionboard')
 
 router.route('/visionboard/goal/:user_id')
   .get(function(req, res, next){
-      Goal.find(req.params.user_id)
+      Goal.find({ author: req.params.user_id })
       .populate('author')
       .populate({
        path: 'comments',

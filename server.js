@@ -96,6 +96,10 @@ app.get('/', function (req, res){
 	res.render('index')
 });
 
+app.get('/pictureCollection', function (req, res){
+  res.render('pictureCollection')
+});
+
 app.get('/visionboard', function(req, res){
   var user = req.user || "no user";
   res.render('visionboard', {user: user})

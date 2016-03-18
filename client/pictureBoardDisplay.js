@@ -73,11 +73,4 @@ var PictureBoardDisplay = React.createClass({
 });
 
 
-
-
-
-
-
-
-
 module.exports = PictureBoardDisplay;

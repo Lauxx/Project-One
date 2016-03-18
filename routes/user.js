@@ -5,7 +5,7 @@ var User = require('../models/user');
 module.exports = function(app, passport) {
 
     app.post('/signup', passport.authenticate('local-signup', {  // creates a new user in database; also hands off to passport to do authentication with
-        successRedirect: '/', // redirect to the secure profile section
+        successRedirect: '/pictureCollection', // redirect to the secure profile section
         failureRedirect: '/signup', // redirect back to the signup page if there is an error
         failureFlash: true // allow flash messages
     }));
@@ -16,6 +16,12 @@ module.exports = function(app, passport) {
             message: req.flash('signupMessage')
         });
     });
+
+    // app.post('/pictureboard/:user_id', passport.authenticate('local-login', {
+    //    successRedirect: '/visionboard', // redirect to the secure profile section
+    //    failureRedirect: '/pictureCollection', // redirect back to the signup page if there is an error
+    //    failureFlash: true // allow flash messages
+    // }));
 
     app.post('/login', passport.authenticate('local-login', {
        successRedirect: '/visionboard', // redirect to the secure profile section
