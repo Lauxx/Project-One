@@ -67,13 +67,33 @@ mark.white{
 	padding-left: 0px;
 }
 
+.goalbio-form-jumbo{
+  padding-bottom: 350px;
+  background-color: #c5eff7;
+  padding-left: 0px;
+}
+
 .margin-left{
 	margin-left: 17px;
 }
+.margin-left-intention{
+  margin-left: 5px;
+}
 
+a {
+  display: inline !important;
+  color: white;
+  word-spacing: 5px;
+}
 
+.date-input{
+  width: 200px;
+}
 
-
+.centered
+{
+    text-align:center;
+}
 
 
 

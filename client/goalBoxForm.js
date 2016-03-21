@@ -99,37 +99,38 @@ var GoalBoxForm = React.createClass({
 		return(
 			<div>
 				<div className='container'>
-
-      
-
-				  <div className='row col-xs-6'>
-            <legend>Goal</legend>
+          <div className="jumbotron goalbio-form-jumbo">
+				  <div className='row col-xs-9'>
+            <legend className='legend line'>Goal</legend>
 				  		<form action="" method="POST" role="form" onSubmit={this.handleSubmit}>
 				  			<div className="form-group">
-				      			<label className="row" for="">Intention</label>
+				      			<label className="row legend margin-left-intention" for="">Intention</label>
 				      			<input type="text" className="form-control" id="" value={this.state.intention} 
                     onChange={this.handleIntentionChange} placeholder="Intention"/>
-				    		</div>
-				    		<div className="row">
-				      			<p>Start Date</p>
-				         		<input type="date" name="" id="input" className="form col-xs-3" value={this.state.startDate} 
-                    onChange={this.handleStartDateChange} required="required" title=""/>
-				         	</div>
-				         	<div className='row'>
-				         		<p>End Date</p>
-				         		<input type="date" name="" id="input" className="form col-xs-3" value={this.state.endDate} 
+				    	 </div>
+				    	
+                <div className="form-group">
+				      			<label className="legend">Start Date</label><br/>
+				         		<input type="date" name="" id="input" className="form col-xs-3 date-input" data-date-format="mm/dd/yyyy" value={this.state.startDate} 
+                    onChange={this.handleStartDateChange} required="required" title=""/><br/>
+				        </div>
+				         	
+                <div className="form-group">
+				         		<label className='legend'>End Date</label><br/>
+				         		<input type="date" name="" id="input" className="form col-xs-3 date-input" value={this.state.endDate} 
                     onChange={this.handleEndDateChange} required="required" title=""/>
-				         	</div>
+				         </div>
 				         	<br/>
                   <div>
                     {tL}
                   </div>
 				         	<div className="row">
-				         		<input value={this.state.task} onChange={this.handleTaskChange} placeholder="Enter your task here"></input>
-				        		<button type="submit" onClick={this.handleTaskSubmit} className="btn btn-primary">Add Task</button><br/><br/>
-				        		<button type="submit" className="btn btn-primary" >Submit</button>
+				         		<textarea width="300px" height="200px" className='legend margin-left' value={this.state.task} onChange={this.handleTaskChange} placeholder="Enter your task here"></textarea>
+				        <span className="margin-left"><button type="submit" onClick={this.handleTaskSubmit} className="legend button-color center-block">Add Task</button></span><br/><br/>
+				        		<button type="submit" className="legend button-color margin-left" >Submit</button>
 				        	</div>
 				  		</form>
+              </div>
 				  	</div>
          </div>
 			</div>
