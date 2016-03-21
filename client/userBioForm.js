@@ -43,23 +43,24 @@ var UserBioForm = React.createClass({
 
 	render: function(){
 		return(
-				<div className="">
+				<div>
 				<div className='container'>
-					<legend>Update User Bio</legend>
-						<div className='row col-xs-6'>
+					
+						<div className='row col-xs-4 col-lg-offset-4'>
+						<legend>Update User Bio</legend>
 				  		<form action="" onSubmit={ this.handleBioSubmit } method="" role="form">
 				  			<div className="form-group">
 				      			<label className="row" htmlFor="">Profile Image</label>
-				      			<input type="text" className="form-control" id="" 
+				      			<input type="text" className="form-control col-xs-4" id="" 
 				      			value={ this.state.profileImage } onChange={ this.handlePhotoChange }
 				      			placeholder="img url goes here"/>
 				    			</div>
 				    			
 				         	
 
-				         		<div className='row'>
+				         		<div className='form-group'>
 				         		<p>Bio Update</p>
-				         		<input type="text" name="" id="input" className="form col-xs-3" value={this.state.bio} 
+				         		<input type="text" name="" id="input" className="form-control col-xs-4" value={this.state.bio} 
                     			onChange={this.handleBioChange} placeholder="update your bio here" title=""/>
 				         	</div>
 

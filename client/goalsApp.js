@@ -74,7 +74,7 @@ var GoalsApp = React.createClass({
       <div className='container'>
         <nav className="navbar navbar-inverse">
           <div className="container-fluid">
-             <a className="navbar-brand" href="#">Your Working Goals</a>
+             <a className="navbar-brand">Your Working Goals</a>
              <ul className="nav navbar-nav">
                <li className="active">
                  {links}

@@ -17,7 +17,7 @@
  	render: function(){
  		return (
 
- 			<div className= 'container'>
+ 			<div className= 'container col-lg-4 col-lg-offset-4'>
  				<form action="" method="POST" role="form">
  					<legend>Upload your vision images</legend>
  				
