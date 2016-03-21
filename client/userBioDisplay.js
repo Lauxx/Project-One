@@ -27,9 +27,11 @@ var UserBioDisplay = React.createClass({
 			     
 			     <img src={this.props.profileImage} className='img-thumbnail'/>
 			      </section>
-			     <section className="row">
+
+			     <section className="row col-xs-4">
 			      <h4> {this.props.bio} </h4>
 			    </section>
+			    <br/><br/><br/>
 			  </div>
 			</div>
 			)

@@ -97,7 +97,7 @@ var GoalBoxForm = React.createClass({
 
     
 		return(
-			<div className="">
+			<div>
 				<div className='container'>
 					<legend>Goal</legend>
 						<div className='row col-xs-6'>
