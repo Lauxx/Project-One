@@ -43,35 +43,31 @@ var UserBioForm = React.createClass({
 
 	render: function(){
 		return(
-				<div>
+			<div>
 				<div className='container'>
-					
-						<div className='row col-xs-4 col-lg-offset-4'>
-						<legend>Update User Bio</legend>
-				  		<form action="" onSubmit={ this.handleBioSubmit } method="" role="form">
-				  			<div className="form-group">
-				      			<label className="row" htmlFor="">Profile Image</label>
+					<div className='jumbotron userbio-form-jumbo'>
+					<div className='row col-lg-7'>
+						<legend className='legend line'>Update User Bio</legend>
+				  		<form onSubmit={ this.handleBioSubmit } role="form" className='row'>
+				  			<div className="form-group margin-left">
+				      			<label className="legend" htmlFor="">Profile Image</label>
 				      			<input type="text" className="form-control col-xs-4" id="" 
 				      			value={ this.state.profileImage } onChange={ this.handlePhotoChange }
-				      			placeholder="img url goes here"/>
-				    			</div>
-				    			
-				         	
+				      			placeholder="Ex. http://example-image.jpg"/>
+				      			<br/><br/><br/><br/>
+								
 
-				         		<div className='form-group'>
-				         		<p>Bio Update</p>
+				         		<label className="legend">Bio Update</label>
 				         		<input type="text" name="" id="input" className="form-control col-xs-4" value={this.state.bio} 
-                    			onChange={this.handleBioChange} placeholder="update your bio here" title=""/>
+                    			onChange={this.handleBioChange} placeholder="Update your bio here" title=""/>
 				         	</div>
-
-
-				        		<button type="submit" className="btn btn-primary">Submit</button>
-				     
-				  		</form>
+				         	<br/><br/>
+							<button type="submit" className="legend button-color margin-left">Submit</button>
+				     	</form>
 				  		<br/><br/>
+				  		</div>
 				  	</div>
-
-			</div>
+				</div>
 			</div>
 
 			)

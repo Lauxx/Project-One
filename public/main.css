@@ -1,6 +1,9 @@
 .pic-collection-img{
 	padding-top: 60px;
 }
+.jumbo{
+	background-color: #c5eff7;
+}
 
 .pic-coll-form{
 	padding-top: 170px;
@@ -58,6 +61,17 @@ mark.white{
 	color: white;
 	background: none;
 }
+.userbio-form-jumbo{
+	padding-bottom: 280px;
+	background-color: #c5eff7;
+	padding-left: 0px;
+}
+
+.margin-left{
+	margin-left: 17px;
+}
+
+
 
 
 
