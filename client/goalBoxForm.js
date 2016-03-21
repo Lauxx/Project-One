@@ -99,8 +99,8 @@ var GoalBoxForm = React.createClass({
 		return(
 			<div>
 				<div className='container'>
-					<legend>Goal</legend>
-						<div className='row col-xs-6'>
+				  <div className='row col-xs-6'>
+            <legend>Goal</legend>
 				  		<form action="" method="POST" role="form" onSubmit={this.handleSubmit}>
 				  			<div className="form-group">
 				      			<label className="row" for="">Intention</label>
@@ -128,8 +128,7 @@ var GoalBoxForm = React.createClass({
 				        	</div>
 				  		</form>
 				  	</div>
-
-			</div>
+         </div>
 			</div>
 			)
 	}

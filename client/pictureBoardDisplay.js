@@ -60,10 +60,10 @@ var PictureBoardDisplay = React.createClass({
 		return (
 		<div>
 			<div className = "container">
-				<div className="jumbotron">
+				
 			 		<div className="row">
 			 			{ allImages }		
-			 		</div>
+			 
 			 	</div>
 			</div>
 		</div>
