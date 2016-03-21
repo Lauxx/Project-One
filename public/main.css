@@ -10,12 +10,12 @@
 }
 
 .foot{
- color: black;
-  background: #e0e0eb;
-  padding-bottom: 70px;
+ color: grey;
+  background: black;
+  padding-bottom: 35px;
   text-align: center;
   font-family: 'Avenir';
-
+  padding-top: 20px;
 }
 
 
@@ -32,12 +32,27 @@
 	border-bottom: 1px solid black;
 }
 
-.buttons{
-	background-color: 
+.navbar-brand-white{
+	color: grey;
+	font-size: 20px;
+	margin: auto;
+	margin-top: 10px;
 }
 
+.image-padding{
+	padding-top: 50px;
+}
 
+.button-color{
+	background-color: #52b3d9;
+	padding: 5px;
+	border-color: black
+}
 
+mark.white{
+	color: white;
+	background: none;
+}
 
 
 

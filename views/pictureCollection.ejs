@@ -1,28 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Start Your VisiB</title>
 
 
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-      <!-- Custom CSS -->
-        <link href="css/clean-blog.min.css" rel="stylesheet">
-      
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="main.css">
+
+  <nav class="navbar navbar-inverse">
+              <div class="container-fluid">
+                <div >
+                  
+                  <p class="navbar-brand text legend"><mark class="white">VisiB.</mark> Start Visualizing Today.</p>
+                </div>
+              </div>
+    </nav>
+
 </head>
+
+
 <body>
 
-    <form action="/api/pictureboard" method="POST" class="form-inline" role="form">
-       <legend>Add an Image for Your VisionBoard!</legend>
+   <div class = "container">
+    <div class = "row">
+      <div class = 'col-lg-6'>
+
+      <form action="/api/pictureboard" method="POST" class="form" class='row'>
+       <legend class="legend">Start your visionboard - choose one image url</legend>
 
         <div class="form-group">
-          <label class="sr-only" for="">profile image</label>
+          <label class="legend" for="">Visionboard Image</label>
           <input name="imageUrl" type="text" class="form-control" id="" placeholder="add image URL">
         </div>
     
-      <button type="submit" class="btn btn-primary">Add</button>
-    </form>
+        <button type="submit" class="legend button-color">Add</button>
+      </form>
+     </div>
+    </div>
+   </div>
+ <br><br><br>
+ <br><br><br>
+ <br><br><br>
+
+<div class='row'>
+   <footer class = "foot">
+   
+    <p>&copy; Copyright VisiB 2016</p>
+    <p>Contact us at info@visib.com </p> 
+   
+  </footer>
+    
+
+
+</div>
+
 
 
 
