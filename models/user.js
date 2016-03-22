@@ -12,8 +12,10 @@ var userSchema = mongoose.Schema({
     profileImage: String,
     pictureBoard: [{type: mongoose.Schema.Types.ObjectId, ref: 'PictureBoard'}],
     goals: [{type: mongoose.Schema.Types.ObjectId, ref: 'Goal'}],
-  }
+  },
+  foo: String
 });
+userSchema.index({foo: 'text' }, function(err){});
 
 userSchema.methods.generateHash = function(password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);

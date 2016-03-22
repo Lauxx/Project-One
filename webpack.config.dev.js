@@ -3,13 +3,15 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'eval',
-  entry: [
-    'webpack-hot-middleware/client',
-    './client/visionboard'
-  ],
+  entry: {
+    main: ['webpack-hot-middleware/client',
+    './client/visionboard'],
+    userspage: ['webpack-hot-middleware/client',
+    './client/userBox']
+  },
   output: {
     path: path.join(__dirname, 'static'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: '/static/'
   },
   plugins: [
