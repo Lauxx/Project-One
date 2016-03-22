@@ -107,6 +107,11 @@ a {
 
 a {
 	color: black;
+	font-family: 'Avenir';
+}
+
+.friends-border{
+	border: 1px solid black;
 }
 
 

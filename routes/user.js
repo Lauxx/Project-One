@@ -61,9 +61,16 @@ module.exports = function(app, passport) {
       });
     })
 
-    // app.get('/api/visionboard/:user_id', function(req, res){
-    //   User.findById({id:})
-    // })
+    app.get('/api/user/:user_id', function(req, res){
+      User.findById({_id: req.params.user_id}, function(err, user){
+        
+        if(err){
+          console.log(err);
+        } else {
+          res.json(user)
+        }
+      });
+    })
 
     app.put('/api/user/:user_id', function(req, res){
       console.log("TRYING TO PUTTTTT!!!!")
