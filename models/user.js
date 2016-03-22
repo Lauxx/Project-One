@@ -9,7 +9,9 @@ var userSchema = mongoose.Schema({
     role: String,
     loggedIn: Boolean,
     bio: String,
-    profileImage: String
+    profileImage: String,
+    pictureBoard: {type: mongoose.Schema.Types.ObjectId, ref: 'PictureBoard'},
+    goals: {type: mongoose.Schema.Types.ObjectId, ref: 'Goal'},
   }
 });
 
