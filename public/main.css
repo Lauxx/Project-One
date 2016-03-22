@@ -95,6 +95,23 @@ a {
     text-align:center;
 }
 
+.edit-button{
+   position:absolute;
+   -webkit-appearance: none;
+     top:0;
+     right:0;
+     border: 0 !important; 
+     outline: 0 !important;
+ 
+     background: transparent !important;
 
+}
 
+.glyphicon-pencil{
+  display: none;
+  
+}
 
+.show-me:hover .glyphicon-pencil{
+  display: block;
+}

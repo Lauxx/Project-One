@@ -18,6 +18,7 @@ var React = require('react');
 var UserBioForm = React.createClass({
 	getInitialState: function(){
 		return {profileImage: '', bio: ''};
+
 	},
 
 	handlePhotoChange: function(e){
@@ -39,7 +40,6 @@ var UserBioForm = React.createClass({
 		this.props.ableToUpdateBio({ profileImage: profileImage, bio: bio });
 		this.setState({ profileImage: '', bio: ''})
 	},
-
 
 	render: function(){
 		return(
