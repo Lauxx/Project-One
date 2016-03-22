@@ -17,11 +17,6 @@ module.exports = function(app, passport) {
         });
     });
 
-    // app.post('/pictureboard/:user_id', passport.authenticate('local-login', {
-    //    successRedirect: '/visionboard', // redirect to the secure profile section
-    //    failureRedirect: '/pictureCollection', // redirect back to the signup page if there is an error
-    //    failureFlash: true // allow flash messages
-    // }));
 
     app.post('/login', passport.authenticate('local-login', {
        successRedirect: '/visionboard', // redirect to the secure profile section
@@ -56,7 +51,20 @@ module.exports = function(app, passport) {
 
     });
 
-//NOT SURE WHERE THIS ONE GOES
+    app.get('/api/allUsers', function(req, res){
+      User.find(function(err, user){
+        if (err){
+          console.log(err);
+        } else {
+          res.json(user)
+        }
+      });
+    })
+
+    // app.get('/api/visionboard/:user_id', function(req, res){
+    //   User.findById({id:})
+    // })
+
     app.put('/api/user/:user_id', function(req, res){
       console.log("TRYING TO PUTTTTT!!!!")
         User.findById({_id: req.params.user_id}, function(err, user) {
@@ -76,5 +84,5 @@ module.exports = function(app, passport) {
           }
         })
       
-    }) 
+    }); 
 };

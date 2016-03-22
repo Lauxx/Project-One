@@ -95,6 +95,18 @@ a {
     text-align:center;
 }
 
+#searchFoot{
+ background-color: white;
+ bottom: 0;
+ height: 100px;
+ left: 0;
+ position: absolute;
+ right:0;
 
+}
+
+a {
+	color: black;
+}
 
 

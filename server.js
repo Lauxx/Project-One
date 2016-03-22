@@ -24,6 +24,8 @@ var port = process.env.PORT || 8000;
 var PictureBoard = require('./models/pictureBoard');
 var pictureBoardRouter = require('./routes/pictureBoard');
 
+var User = require('./models/user');
+
 var Goal = require('./models/goal');
 var goalRouter = require('./routes/goal');
 
@@ -103,6 +105,21 @@ app.get('/pictureCollection', function (req, res){
 app.get('/visionboard', function(req, res){
   var user = req.user || "no user";
   res.render('visionboard', {user: user})
+});
+
+app.get('/searchPage', function(req, res){
+  User.find(function(err, data){
+    if(err){
+      console.log(err)
+    } else {
+      res.render('searchPage', {users: data});
+    }
+  })
+  
+});
+
+app.get('/singleFriendPage', function(req, res){
+  res.render('singleFriendPage')
 });
 
 

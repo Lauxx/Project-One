@@ -14,24 +14,12 @@
                    <ul class="nav navbar-nav navbar-right para-text">
                   
                   <li><a href="/visionboard"><span class=""></span> My VisiB </a></li>
-                   <li><a href="/searchPage"><span class=""></span>Search For Friends </a></li>
                   <li><a href="/logout"><span class="glyphicon glyphicon-user"></span> Logout </a></li>
                   
                     
                   </ul>
                   </div><br><br><br>
-                  <div>
-                  <p><mark class="white legend">Welcome 
-                    <% if (user.local) { %>
-                    <%= user.local.username %>
-                    <% }else{ %>
-                    <%= user %>
-                    <%}%>! </mark>
-                  </p>
-
-                  
-
-                </div>
+                 
               </div>
           
      
@@ -43,15 +31,28 @@
 
   
   
+ 
+    
+  <div class="container row col-lg-8 col-lg-offset-2"> <% for(var i = 0; i < users.length; i++) { %>
+    
+      <section id = "<%=users[i]._id %>">
 
+      <section class="col-lg-2"> 
+        <img src="<%= users[i].local.profileImage%>" height="50px" width='50px'>
+      </section>
 
-  
-
-  <div id='visionboard'>
+        <h3> <a href="<%=users[i]._id %>"> <%= users[i].local.username%></a></h3>
+        
+        <p> <%= users[i].local.bio%> </p>  
+                  <% } %>
+     
+    </section>
   </div>
-  <br><br><br>
+
+
+<!--   
   <div class='row'>
-   <footer class = "foot">
+   <footer  id ="searchFoot">
    
     <p>&copy; Copyright VisiB 2016</p>
     <p>Contact us at info@visib.com </p> 
@@ -60,7 +61,7 @@
     
 
 
-</div>
+</div> -->
   
 
 
@@ -71,6 +72,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
   <script type="text/javascript" src="./static/bundle.js"></script>
+  <script src= "app.js"></script>
+
 
 </body>
 </html>
