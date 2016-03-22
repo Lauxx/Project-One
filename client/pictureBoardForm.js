@@ -69,17 +69,16 @@
 
  	render: function(){
  		return (
- 			<div className= 'container col-lg-4 col-lg-offset-4'>
+ 			<div className= 'container col-lg-4 col-lg-offset-8'>
  				<form onSubmit={ this.handleImageSubmit } role="form">
- 					<legend>Upload your vision images</legend>
+ 					<p className="legend line">Upload image to your VisionBoard.</p>
  				
  					<div className="form-group">
- 						<label for=""></label>
  						<input type="text" className="form-control" id="" value={this.state.uploadImage} 
-                    onChange={this.handleImageChange} placeholder="add image URL here"/>
+                    onChange={this.handleImageChange} placeholder="Ex. http://example-image.jpg"/>
  					</div>
  				
- 					<button type="submit" className="btn btn-primary">Add Image</button>
+ 					<button type="submit" className="legend button-color">Add Image</button>
  				</form>
  			</div>
 		)
