@@ -69,7 +69,7 @@ var GoalBoxDisplay = React.createClass({
       return (
         <div>
           <ul>
-            <li className='checkbox' >{ t }<label><input type="checkbox" value=""/></label>
+            <li >{ t }
             </li>
           </ul>
         </div>
@@ -95,11 +95,12 @@ var GoalBoxDisplay = React.createClass({
         return(
           <div>
            <div className="container col-xs-10 col-xs-offset-1">
-            <div className="panel panel-info">
-              <div className="panel-heading">
-                <h3 className="panel-title">Goals</h3>
-              </div>
-              <div className="panel-body">
+            <div className="jumbotron">
+              
+                <h3 className='legend line'>Goal Title</h3>
+             
+              <div className="legend">
+              <h4 className="legend"> Intention:</h4>
                 <p>{this.props.intention}</p>
                   <div className = 'row'>
                     <p>Start Date</p>

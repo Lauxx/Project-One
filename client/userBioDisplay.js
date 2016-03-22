@@ -40,7 +40,8 @@ var UserBioDisplay = React.createClass({
 	render: function(){
     
 		return(
-        		<div><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+        		<div><br/><br/>
         			<div className='container show-me'>
         			 <div className='jumbotron jumbo'>
         			   <div className="row">
@@ -70,6 +71,7 @@ var UserBioDisplay = React.createClass({
         	)
         }
        });
+
 
 
 

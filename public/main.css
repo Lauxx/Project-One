@@ -95,6 +95,7 @@ a {
     text-align:center;
 }
 
+<<<<<<< HEAD
 .edit-button{
    position:absolute;
    -webkit-appearance: none;
@@ -106,6 +107,26 @@ a {
      background: transparent !important;
 
 }
+=======
+#searchFoot{
+ background-color: white;
+ bottom: 0;
+ height: 100px;
+ left: 0;
+ position: absolute;
+ right:0;
+
+}
+
+a {
+	color: black;
+	font-family: 'Avenir';
+}
+
+.friends-border{
+	border: 1px solid black;
+}
+>>>>>>> a444b5d40fb7f271d2ecfd8784d999254f4aceb3
 
 .glyphicon-pencil{
   display: none;
