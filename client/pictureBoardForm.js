@@ -11,7 +11,7 @@
 
  	handleImageChange: function(e){
  		
-
+    
  	},
 
  	render: function(){
@@ -25,8 +25,6 @@
  						<label for="">label</label>
  						<input type="text" className="form-control" id="" placeholder="img url here"/>
  					</div>
- 				
- 					
  				
  					<button type="submit" className="btn btn-primary">Submit</button>
  				</form>

@@ -91,44 +91,46 @@ var GoalBoxDisplay = React.createClass({
 
     if (this.props.activeGoal == this.props.id ) {
       var self = this;
-    return(
-      <div>
-       <div className="container col-xs-10 col-xs-offset-1">
-        <div className="panel panel-info">
-          <div className="panel-heading">
-            <h3 className="panel-title">Goals</h3>
-          </div>
-          <div className="panel-body">
-            <p>{this.props.intention}</p>
-              <div className = 'row'>
-                <p>Start Date</p>
-                <p>{this.props.startDate}</p>
+
+        return(
+          <div>
+           <div className="container col-xs-10 col-xs-offset-1">
+            <div className="panel panel-info">
+              <div className="panel-heading">
+                <h3 className="panel-title">Goals</h3>
               </div>
-              <div className='row'>
-                <p>End Date</p>
-                {this.props.endDate}
-              </div>
-              <div className='row'>
-                { task } 
-              <div>
-              </div>
-                { comm }
-              </div>
-               <CommentForm id={ this.props.id } 
-                handleCommentFormSubmit={this.handleCommentFormSubmit} />     
-              </div>
+              <div className="panel-body">
+                <p>{this.props.intention}</p>
+                  <div className = 'row'>
+                    <p>Start Date</p>
+                    <p>{this.props.startDate}</p>
+                  </div>
+                  <div className='row'>
+                    <p>End Date</p>
+                    {this.props.endDate}
+                  </div>
+                  <div className='row'>
+                    { task } 
+                  <div>
+                  </div>
+                    { comm }
+                  </div>
+                   <CommentForm id={ this.props.id } 
+                    handleCommentFormSubmit={ this.handleCommentFormSubmit } />     
+                  </div>
+                </div>
+              </div> 
             </div>
-          </div> 
-        </div>
-      )
-    }
-    return (
+          )
+        }
+        
+  return (
 
       <div>
         
       </div>
 
-      ) 
+    ) 
   }
 });
 

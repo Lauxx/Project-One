@@ -24,23 +24,48 @@ var PictureBoardDisplay = React.createClass({
 
   getInitialState: function() {
     return { 
-      activePicture: " "
-    }
+      activePicture: ""
+    };
   },
 
   handlePicClick: function(picName) {
-    this.setState({ activePicture: picName });
+
+    var newArr = this.props.imagesArr.map(function(item){
+      return item
+    });
+
+        console.log(newArr, "newARR");
+
+    var i = this.props.imagesArr.indexOf(picName);
+
+        console.log("INDEX", i);
+
+    newArr.splice(i, 1);
+
+        console.log(newArr, "END ARR");
+
+    var o = {imageUrl: newArr}
+
+    $.ajax({
+      url: this.props.urlPicture + this.props.userId,
+      dataType: 'JSON',
+      type: 'PUT',
+      data: o,
+      success: function(data){
+        console.log(data, 'image record is updated');
+        this.props.loadImageUrlFromServer();
+      }.bind(this),
+      error: function(xhr, status, err){
+        console.error(this.props.urlPicture, status, err.toString());
+      }.bind(this)
+    }); 
     
   },
-  
-  showPic: function(item, picName){
-    if (this.state.activePicture == picName) {
-       return item;
-     } 
+
+  componentDidMount: function(){
+    this.props.loadImageUrlFromServer();
   },
-
  
-
 	render: function(){
 
 		console.log(this.props.imagesArr);
@@ -57,18 +82,16 @@ var PictureBoardDisplay = React.createClass({
 			 	)
 		})
 
-		return (
+  return (
 		<div>
 			<div className = "container">
-				
-			 		<div className="row">
-			 			{ allImages }		
-			 
+		 		<div className="row">
+		 			{ allImages }		
 			 	</div>
 			</div>
 		</div>
+	)
 
-			)
 	}
 });
 

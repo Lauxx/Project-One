@@ -28,7 +28,6 @@ var UserBioApp = React.createClass({
       u.bio = "none";
       u.profileImage = "none";
     }
-    console.log("USER BIO APP")
 		return(
 			<div>
         <UserBioDisplay bio={u.bio} profileImage={u.profileImage}/>

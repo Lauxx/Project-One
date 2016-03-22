@@ -37,7 +37,6 @@ var VisionBoard = React.createClass ({
       url: this.props.url,
       method: 'GET',
     }).done(function(bio){
-      console.log(bio, 'load users from server');
       window.blah = bio;
       self.setState({
         user: bio
@@ -51,12 +50,10 @@ var VisionBoard = React.createClass ({
     
     var self = this;
     var id = this.state.user._id;
-    console.log(this.props.urlVision + id)
     $.ajax({
       url: this.props.urlVision + id,
       method: 'GET',
     }).done(function(goal){
-      console.log(goal, 'load goals from server');
       self.setState({
         goals: goal
       })
@@ -66,12 +63,10 @@ var VisionBoard = React.createClass ({
   loadImageUrlFromServer: function(){
     var self = this;
     var id = this.state.user._id;
-    console.log(id, 'loading imageUrl from server');
     $.ajax({
       url: this.props.urlPicture + id,
       method: 'GET',
     }).done(function(data){
-      console.log(data, 'load images from server');
       var imgs = data.imageUrl;
       self.setState({
         imageUrls: imgs
@@ -123,10 +118,10 @@ var VisionBoard = React.createClass ({
   },
 
   render: function() {
-    console.log(this.state.user);
     return (
         <div>
-          <PictureBoardDisplay loadImageUrlFromServer = { this.loadImageUrlFromServer } imagesArr={ this.state.imageUrls }/>
+          <PictureBoardDisplay loadUserFromServer={ this.loadUserFromServer } loadImageUrlFromServer={ this.loadImageUrlFromServer } imagesArr={ this.state.imageUrls }
+            urlPicture={ this.props.urlPicture } userId={ this.state.user._id } />
           <PictureBoardForm />
           <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit }/>
           <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } 

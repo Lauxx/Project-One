@@ -14,6 +14,38 @@ router.route('/pictureboard/:user_id')
 			}
 		});
 	})
+	.delete(function(req, res, next){
+		PictureBoard.findOne({ user: req.params.user_id }, function(err, image){
+			if (err){
+				console.log(err);
+				next();
+			} else {
+				image.remove();
+				res.json({message: 'this record is gone'});
+			}
+		});
+	})
+
+
+	.put(function (req, res, next){
+		PictureBoard.findOne({ user: req.params.user_id }, function(err, image){
+			if(err){
+				console.log(err);
+				next();
+			} else {
+				image.imageUrl = req.body.imageUrl ? req.body.imageUrl : image.imageUrl;
+				// var t = image.imageUrl.map(e => (JSON.parse(e)))[0];
+				image.save(function(err, image){
+					if (err){
+						console.log(err);
+						next();
+					} else {
+						res.json ({message: "image updated!"})
+					}
+				})
+			}
+		});
+	})
 
 
 router.route('/pictureboard')
@@ -35,37 +67,6 @@ router.route('/pictureboard')
 		});
 	})
 
-router.route('/pictureboard/:picture_id')
-	.delete(function(req, res, next){
-		PictureBoard.remove({_id: req.params.picture_id}, function(err, image){
-			if (err){
-				console.log(err)
-				next();
-			} else {
-				res.json({message: 'image deleted'}); 
-			}
-		});
-	})
-
-	.put(function (req, res, next){
-		PictureBoard.findById(req.params.picture_id, function(err, picture){
-			if(err){
-				console.log(err);
-				next();
-			} else {
-				picture.imageUrl = req.body.imageUrl ? req.body.imageUrl : picture.imageUrl;
-
-				picture.save(function(err, image){
-					if (err){
-						console.log(err);
-						next();
-					} else {
-						res.json ({message: "image updated!"})
-					}
-				})
-			}
-		});
-	})
 
 module.exports = router;
 
