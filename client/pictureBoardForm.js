@@ -9,9 +9,8 @@
  		}
  	},
 
- 	handleImageChange: function(e){
- 		
-    
+ 	handleImageAdd: function(e){
+ 		 
  	},
 
  	render: function(){

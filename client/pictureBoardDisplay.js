@@ -35,12 +35,18 @@ var PictureBoardDisplay = React.createClass({
     });
 
         console.log(newArr, "newARR");
+        console.log(newArr.length, "newArr length")
 
     var i = this.props.imagesArr.indexOf(picName);
 
         console.log("INDEX", i);
 
-    newArr.splice(i, 1);
+    
+    if (i = 0) {
+      delete myArr(i);
+    } else {
+      newArr.splice(i, 1);
+    };
 
         console.log(newArr, "END ARR");
 
