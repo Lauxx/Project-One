@@ -122,7 +122,6 @@ var VisionBoard = React.createClass ({
         <div>
           <PictureBoardDisplay loadUserFromServer={ this.loadUserFromServer } loadImageUrlFromServer={ this.loadImageUrlFromServer } imagesArr={ this.state.imageUrls }
             urlPicture={ this.props.urlPicture } userId={ this.state.user._id } />
-          <PictureBoardForm />
           <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit }/>
           <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } 
                     loadGoalsFromServer={ this.loadGoalsFromServer } />

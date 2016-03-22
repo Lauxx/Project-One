@@ -15,9 +15,7 @@
     - UserBioForm
  */
 
-
-
-
+var PictureBoardForm = require('./pictureBoardForm');
 var React = require('react');
 
 var PictureBoardDisplay = React.createClass({
@@ -31,32 +29,29 @@ var PictureBoardDisplay = React.createClass({
   handlePicClick: function(picName) {
 
     var newArr = this.props.imagesArr.map(function(item){
-      return item
+      return item;
     });
 
         console.log(newArr, "newARR");
         console.log(newArr.length, "newArr length")
 
-    var i = this.props.imagesArr.indexOf(picName);
-
+    var i = newArr.indexOf(picName);
         console.log("INDEX", i);
+      if (newArr.length == 1) {
+        newArr.length = 0;
+      } else {
+        newArr.splice(i, 1);
+      };
 
-    
-    if (i = 0) {
-      delete myArr(i);
-    } else {
-      newArr.splice(i, 1);
-    };
+        console.log(newArr.length, newArr, "END ARR");
 
-        console.log(newArr, "END ARR");
-
-    var o = {imageUrl: newArr}
+    var updateArr = {imageUrl: newArr};
 
     $.ajax({
       url: this.props.urlPicture + this.props.userId,
       dataType: 'JSON',
       type: 'PUT',
-      data: o,
+      data: updateArr,
       success: function(data){
         console.log(data, 'image record is updated');
         this.props.loadImageUrlFromServer();
@@ -94,6 +89,10 @@ var PictureBoardDisplay = React.createClass({
 		 		<div className="row">
 		 			{ allImages }		
 			 	</div>
+        <div>
+          <PictureBoardForm loadUserFromServer={ this.props.loadUserFromServer } loadImageUrlFromServer={ this.props.loadImageUrlFromServer } imagesArr={ this.props.imagesArr }
+            urlPicture={ this.props.urlPicture } userId={ this.props.userId } />
+        </div>
 			</div>
 		</div>
 	)
