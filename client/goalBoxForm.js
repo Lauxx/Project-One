@@ -117,7 +117,7 @@ var GoalBoxForm = React.createClass({
 				         	
                 <div className="form-group">
 				         		<label className='legend'>End Date</label><br/>
-				         		<input type="date" name="" id="input" className="form col-xs-3 date-input" value={this.state.endDate} 
+				         		<input type="date" name="" id="input" className="form col-xs-3 date-input" data-date-format="mm/dd/yyyy" value={this.state.endDate} 
                     onChange={this.handleEndDateChange} required="required" title=""/>
 				         </div>
 				         	<br/>

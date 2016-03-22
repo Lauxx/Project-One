@@ -44,7 +44,7 @@ var GoalsApp = React.createClass({
     var links = this.props.goals.map(function(l){
       return (
         <div>
-          <a className="goal-app-li" onClick={self.handleLinkClick.bind(this, l._id)}> {l.intention} </a>
+          <a className="goal-nav" onClick={self.handleLinkClick.bind(this, l._id)}> {l.intention} </a>
         </div>
         )
     })
@@ -77,7 +77,7 @@ var GoalsApp = React.createClass({
              <a className="navbar-brand legend ">Your Working Goals</a>
                
              <ul className="nav navbar-nav ">
-               <li className="active legend">
+               <li className="active legend goal-nav">
                {links}
                </li>
               

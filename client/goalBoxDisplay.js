@@ -80,11 +80,19 @@ var GoalBoxDisplay = React.createClass({
       var username = c.user ? c.user.local.username : 'no user';
          return (
           <div>
-            <ul>
-              <li> {username} </li>
-              <li> {c.body} </li> 
-              <li> {c.date} </li>
-            </ul>
+            <div className="legend">
+              
+              <section>
+              <h4 className="legend"> UserName: </h4> 
+              <p>@{username} </p>
+              </section>
+              <section> 
+              <p>{c.body} </p>
+              </section> 
+              <section className="line"> 
+              <p className="date-size"> {c.date} </p>
+              </section>
+            </div> <br/><br/>
           </div>
        )
     });
@@ -95,33 +103,34 @@ var GoalBoxDisplay = React.createClass({
         return(
           <div>
            <div className="container col-xs-10 col-xs-offset-1">
-            <div className="jumbotron">
-              
-                <h3 className='legend line'>Goal Title</h3>
-             
-              <div className="legend">
-              <h4 className="legend"> Intention:</h4>
-                <p>{this.props.intention}</p>
-                  <div className = 'row'>
-                    <p>Start Date</p>
-                    <p>{this.props.startDate}</p>
-                  </div>
-                  <div className='row'>
-                    <p>End Date</p>
-                    {this.props.endDate}
-                  </div>
-                  <div className='row'>
-                    { task } 
-                  <div>
-                  </div>
-                    { comm }
-                  </div>
-                   <CommentForm id={ this.props.id } 
-                    handleCommentFormSubmit={ this.handleCommentFormSubmit } />     
-                  </div>
+            <div className="jumbotron jumbo">
+              <h2 className='legend line'>Goal Title</h2>
+                <div className="legend">
+                  <h3 className="legend"> Intention:</h3>
+                    <p>{this.props.intention}</p>
+                      <div className = 'row margin-left'>
+                        <h3>Start Date</h3>
+                        <p>{this.props.startDate}</p>
+                      </div>
+                      <div className='row margin-left'>
+                        <h3>End Date</h3>
+                        <p> {this.props.endDate} </p>
+                      </div>
+                      <div className='row'>
+                        <h3 className="legend margin-left">Steps to completing your goal</h3>
+                        { task }     
+                      </div> <br/><br/>
+                          <div className="col-lg-8 col-lg-offset-2">
+                          <h3 className="legend line">Comments</h3>
+                            { comm }
+                          </div>
+                     
+                      <CommentForm id={ this.props.id } 
+                      handleCommentFormSubmit={ this.handleCommentFormSubmit } />     
                 </div>
-              </div> 
-            </div>
+              </div>
+            </div> 
+          </div>
           )
         }
         
