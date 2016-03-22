@@ -20,10 +20,12 @@
 .foot{
  color: grey;
   background: black;
-  padding-bottom: 35px;
+  padding-bottom: 60px;
   text-align: center;
   font-family: 'Avenir';
   padding-top: 20px;
+  position: relative;
+  width: 100%;
 }
 
 .legend{
@@ -74,11 +76,7 @@ mark.white{
   margin-left: 5px;
 }
 
-a {
-  display: inline !important;
-  color: white;
-  word-spacing: 5px;
-}
+
 
 .date-input{
   width: 200px;
@@ -89,7 +87,7 @@ a {
     text-align:center;
 }
 
-<<<<<<< HEAD
+
 .edit-button{
    position:absolute;
    -webkit-appearance: none;
@@ -101,20 +99,23 @@ a {
      background: transparent !important;
 
 }
-=======
-#searchFoot{
- background-color: white;
- bottom: 0;
- height: 100px;
- left: 0;
- position: absolute;
- right:0;
 
+@media(max-width: 520px) {
+    #searchFoot {
+        display: none;
+    }
 }
 
-a {
-	color: black;
-	font-family: 'Avenir';
+#searchFoot{
+ color: grey;
+  background: black;
+  padding-bottom: 60px;
+  text-align: center;
+  font-family: 'Avenir';
+  padding-top: 20px;
+  position: relative;
+  width: 100%;
+
 }
 
 .friends-border{
@@ -134,8 +135,12 @@ a {
 
 .glyphicon-pencil{
   display: none;
- }
-
+}
+.glyphicon-pencil{
+	display: none;
+}
 .show-me:hover .glyphicon-pencil{
   display: block;
+}
+
 

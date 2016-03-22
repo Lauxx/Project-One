@@ -46,7 +46,7 @@ var UserBioForm = React.createClass({
 			<div>
 				<div className='container'>
 					<div className='jumbotron userbio-form-jumbo'>
-					<div className='row col-lg-7'>
+					<div className='row col-lg-7 col-xs-8 col-xs-offset-1'>
 						<legend className='legend line'>Update User Bio</legend>
 				  		<form onSubmit={ this.handleBioSubmit } role="form" className='row'>
 				  			<div className="form-group margin-left">
