@@ -61,6 +61,18 @@ module.exports = function(app, passport) {
       });
     })
 
+      app.get('/api/allUsers/search/:query', function(req, res){
+        console.log(req.params.query);
+      User.findOne( {'local.username': req.params.query } )
+       .exec(function(err, user){
+        if (err){
+          console.log(err);
+        } else {
+          res.json(user)
+        }
+      });
+    })
+
     app.get('/api/user/:user_id', function(req, res){
       User.findById({_id: req.params.user_id}, function(err, user){
         

@@ -31,7 +31,7 @@ router.route('/visionboard')
     goal.taskList = req.body.taskList || 'none';
     goal.startDate = req.body.startDate || 'none';
     goal.endDate = req.body.endDate || 'none';
-    e9be93c83';
+    goal.author = req.user ? req.user._id : '56df6149fa9dff1e9be93c83';
     goal.posX = req.body.posX || 0;
     goal.posY = req.body.posY || 0;
 

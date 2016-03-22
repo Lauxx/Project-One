@@ -28,29 +28,14 @@
 
   </head>
   <body>
-  <div class="container col-lg-6 col-lg-offset-3"> 
-    <h3 class="legend">Search for friends by username.</h3>
-    <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title=""><br>
-    <button type="button" class="legend button-color">Search</button><br><br>
-  </div>
+  
   
   
  
     
-  <div class="container friends-border row col-lg-8 col-lg-offset-2"> <% for(var i = 0; i < users.length; i++) { %>
+  <div  id="userbox"> 
     
-      <section id = "<%=users[i]._id %>">
-
-      <section class="col-lg-2"> 
-        <img src="<%= users[i].local.profileImage%>" height="50px" width='50px'>
-      </section>
-
-        <h3> <a href="<%=users[i]._id %>"> <%= users[i].local.username%></a></h3>
-        
-        <p> <%= users[i].local.bio%> </p>  
-                  <% } %>
      
-    </section>
   </div>
 
 
@@ -75,7 +60,7 @@
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-  <script type="text/javascript" src="./static/bundle.js"></script>
+  <script type="text/javascript" src="./static/userspage.js"></script>
   <script src= "app.js"></script>
 
 
