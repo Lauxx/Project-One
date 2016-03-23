@@ -59,7 +59,7 @@ router.route('/visionboard/goal/:user_id')
        path: 'comments',
        populate: {
          path: 'user',
-         select: 'local.email local.username',
+         select: 'local.email local.username local.profileImage',
           }
         })
       .exec(function(err, goal){

@@ -79,21 +79,21 @@ var GoalBoxDisplay = React.createClass({
         )
     })
     var comm = this.props.commentsArray.map(function(c){
-      var username = c.user ? c.user.local.username : 'no user';
+      var user = c.user ? c.user.local : 'no user';
          return (
           <div>
 
                 <div className="legend">
                   
                   <section>
-                  <h4 className="legend"> UserName: </h4> 
-                  <p>@{username} </p>
+                  <img src={user.profileImage} height="50px" width="50px"/>
+                  <p>@{user.username} </p>
                   </section>
                   <section> 
                   <p>{c.body} </p>
                   </section> 
                   <section className="line"> 
-                  <p className="date-size"> {c.date} </p>
+                  <p className="date-size"> {c.date.substr(0,10)} </p>
                   </section>
                 </div> <br/><br/>
 
