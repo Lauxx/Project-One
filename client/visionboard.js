@@ -173,7 +173,7 @@ var VisionBoard = React.createClass ({
 
 
 
-          <UserBioImageApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit } />
+          <UserBioImageApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit } guest={ this.state.guest } />
 
 
           <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } 
