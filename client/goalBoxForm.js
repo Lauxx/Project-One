@@ -78,6 +78,7 @@ var GoalBoxForm = React.createClass({
     this.setState({goalTitle: '', intention: '', startDate: '', endDate: '', taskList: '', task: ''});
     this.myArr.length = 0;
 
+    alert("Congrats! Check out your new goal in the Goals dropdown menu.");
   },
 
 
