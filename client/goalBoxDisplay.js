@@ -106,8 +106,10 @@ var GoalBoxDisplay = React.createClass({
           <div>
            <div className="container col-xs-10 col-xs-offset-1">
             <div className="jumbotron jumbo">
-              <h2 className='legend line'>Goal Title</h2>
+
                 <div className="legend">
+                 <h2 className='legend line'>Goal Title</h2>
+                    <p>{this.props.goalTitle}</p>
                   <h3 className="legend"> Intention:</h3>
                     <p>{this.props.intention}</p>
                       <div className = 'row margin-left'>
