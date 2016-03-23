@@ -24,32 +24,63 @@ var ReactDOM = require('react-dom');
 var VisionBoard = React.createClass ({
   getInitialState: function() {
     return {
-      user: {},
+      user: null,
       goals: [],
       imageUrls: [],
+      friendId: null,
+      guest: null,
     }
   },
 
-  loadUserFromServer: function() {
-    
-    var self = this; 
-    $.ajax({
-      url: this.props.url,
-      method: 'GET',
-    }).done(function(bio){
-      window.blah = bio;
-      self.setState({
-        user: bio
-      });
-      self.loadGoalsFromServer();
-      self.loadImageUrlFromServer();
-    })
+  getUrl: function() {
+    if(window.location.href.split('/').pop() !== 'visionboard'){
+      var friendId = window.location.href.split('=').pop();
+      this.setState({friendId: friendId});
+      this.setState({guest: true});
+    } else {
+      console.log('DAVEs NOT HERE, MAN!!');
+    }
   },
+
+  /* showBio: function() {
+      if (this.state.guest) {
+        return <UserBioApp user={this.state.guest} handleBioSubmit={ this.handleUserBioFormSubmit }/>
+      } else if (this.state.user) {
+        return <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit }/>
+      } else {
+        return null;
+      }
+
+  }, */
+
+  loadUserFromServer: function() {
+    var self = this; 
+    if(this.state.friendId) {
+      var url = '/api/user' + '/' + this.state.friendId;
+    } else {
+      var url = this.props.url;
+    }
+   $.ajax({
+     url: url,
+     method: 'GET',
+   }).done(function(bio){
+     window.blah = bio;
+     self.setState({
+       user: bio
+     });
+     self.loadGoalsFromServer();
+     self.loadImageUrlFromServer();
+   })
+ },
 
   loadGoalsFromServer: function(){
     
     var self = this;
-    var id = this.state.user._id;
+      if (this.state.friendId) {
+        var id = this.state.friendId;
+      } else {
+        var id = this.state.user._id;
+      };
     $.ajax({
       url: this.props.urlVision + id,
       method: 'GET',
@@ -62,7 +93,11 @@ var VisionBoard = React.createClass ({
 
   loadImageUrlFromServer: function(){
     var self = this;
-    var id = this.state.user._id;
+    if (this.state.friendId) {
+        var id = this.state.friendId;
+      } else {
+        var id = this.state.user._id;
+      };
     $.ajax({
       url: this.props.urlPicture + id,
       method: 'GET',
@@ -111,17 +146,22 @@ var VisionBoard = React.createClass ({
     });
   },
 
-
   componentDidMount: function() {
     this.loadUserFromServer();
 
   },
+  
+  componentWillMount: function() {
+    this.getUrl();
+  },
 
   render: function() {
+    window.getUrl=this.getUrl;
+    if (this.state.user) {
     return (
         <div>
           <PictureBoardDisplay loadUserFromServer={ this.loadUserFromServer } loadImageUrlFromServer={ this.loadImageUrlFromServer } imagesArr={ this.state.imageUrls }
-            urlPicture={ this.props.urlPicture } userId={ this.state.user._id } />
+            urlPicture={ this.props.urlPicture } userId={ this.state.user._id } guest={ this.state.guest } />
           <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit }/>
           <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } 
                     loadGoalsFromServer={ this.loadGoalsFromServer } />
@@ -129,6 +169,9 @@ var VisionBoard = React.createClass ({
  
         </div>
       )
+    } else {
+      return null;
+    }
   }
 });
 

@@ -43,7 +43,7 @@ var UserBox = React.createClass ({
           <section className="col-lg-2"> 
             <img src={user.local.profileImage} height="50px" width='50px'/>
            </section>
-           <h3> <a href={user._id}> {user.local.username}</a></h3>
+           <h3> <a href={ '/singleFriendPage?id=' + user._id }> {user.local.username}</a></h3>
            <p> {user.local.bio}</p>   
         </section>
         )
@@ -54,7 +54,7 @@ var UserBox = React.createClass ({
           <section className="col-lg-2"> 
             <img src={this.state.users.local.profileImage} height="50px" width='50px'/>
            </section>
-           <h3> <a href={this.state.users._id}> {this.state.users.local.username}</a></h3>
+           <h3> <a href={ '/singleFriendPage?id=' + this.state.users._id }> {this.state.users.local.username}</a></h3>
            <p> {this.state.users.local.bio}</p>   
         </section>
         )

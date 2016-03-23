@@ -51,6 +51,16 @@ module.exports = function(app, passport) {
 
     });
 
+    app.get('/api/user/:id', function(req, res){
+          User.findById({_id: req.params.id}, function(err, user) {
+            if(err) {
+              console.log(err);
+            } else {
+              res.json(user);
+            }
+          })         
+    });
+
     app.get('/api/allUsers', function(req, res){
       User.find(function(err, user){
         if (err){
@@ -61,7 +71,7 @@ module.exports = function(app, passport) {
       });
     })
 
-      app.get('/api/allUsers/search/:query', function(req, res){
+    app.get('/api/allUsers/search/:query', function(req, res){
         console.log(req.params.query);
       User.findOne( {'local.username': req.params.query } )
        .exec(function(err, user){

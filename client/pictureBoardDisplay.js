@@ -69,6 +69,13 @@ var PictureBoardDisplay = React.createClass({
  
 	render: function(){
 
+    if(!this.props.guest) {
+      var showForm = <PictureBoardForm loadUserFromServer={ this.props.loadUserFromServer } loadImageUrlFromServer={ this.props.loadImageUrlFromServer } imagesArr={ this.props.imagesArr }
+            urlPicture={ this.props.urlPicture } userId={ this.props.userId } guest={ this.props.guest } />
+    } else {
+      var showForm = null;
+    };
+
 		console.log(this.props.imagesArr);
 
 		var self = this;
@@ -90,8 +97,7 @@ var PictureBoardDisplay = React.createClass({
 		 			{ allImages }		
 			 	</div>
         <div>
-          <PictureBoardForm loadUserFromServer={ this.props.loadUserFromServer } loadImageUrlFromServer={ this.props.loadImageUrlFromServer } imagesArr={ this.props.imagesArr }
-            urlPicture={ this.props.urlPicture } userId={ this.props.userId } />
+          { showForm }
         </div>
 			</div>
 		</div>

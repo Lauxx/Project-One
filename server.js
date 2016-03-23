@@ -118,7 +118,8 @@ app.get('/searchPage', function(req, res){
   
 });
 
-app.get('/singleFriendPage', function(req, res){
+app.get('/singleFriendPage?', function(req, res){
+  console.log(req.query.id);
   res.render('singleFriendPage')
 });
 
