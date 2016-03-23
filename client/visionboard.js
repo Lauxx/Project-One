@@ -178,8 +178,13 @@ var VisionBoard = React.createClass ({
 
           <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } 
                     loadGoalsFromServer={ this.loadGoalsFromServer } guest={ this.state.guest } />
-          
- 
+         <br/><br/> 
+      <footer className = "foot">
+   
+    <p>&copy; Copyright VisiB 2016</p>
+    <p>Contact us at info@visib.com </p> 
+   
+  </footer>
         </div>
       )
     } else {

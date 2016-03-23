@@ -92,7 +92,7 @@ var GoalsApp = React.createClass({
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
               </button>
-                <p className="navbar-brand legend">My VisiB</p>
+                <p className="navbar-brand legend">VisiB</p>
             </div>
   
       
