@@ -88,7 +88,7 @@ var UserBioApp = React.createClass({
                   </section>
 
                    <section className="row col-lg-7 col-lg-offset-1 col-xs-7 col-xs-offset-1">
-                    <h3 className="legend"> A little about me.</h3>
+                    <h3 className="legend"> A little about {this.props.username}.</h3>
                     <p className="legend"> {this.props.bio} </p>
 
                     {pencil}
