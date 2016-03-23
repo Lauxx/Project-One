@@ -114,6 +114,17 @@ mark.white{
     #searchFoot {
         display: none;
     }
+    .pictureBoardDisplay{
+      height: 100px !important;
+      width: 100% !important;
+      
+    }
+}
+
+.pictureBoardDisplay{
+  height: 250px;
+  width: 100%;
+
 }
 
 #searchFoot{

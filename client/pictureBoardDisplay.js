@@ -84,7 +84,7 @@ var PictureBoardDisplay = React.createClass({
       var allImages = this.props.imagesArr.map(function(image){
        return (
             <div className="col-xs-4 ">
-              <img src = { image } height="250px" width="100%"/>
+              <img className="pictureBoardDisplay" src = { image } /> 
               <a className="glyphicon glyphicon-remove-circle" onClick={ self.handlePicClick.bind(null, image) }></a>
             </div>
 
