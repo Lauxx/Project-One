@@ -104,8 +104,8 @@ var GoalBoxForm = React.createClass({
 		return(
 			<div>
 				<div className='container'>
-          <div className="jumbotron goalbio-form-jumbo">
-				  <div className='row col-xs-9'>
+          <div> <br/> <br/>
+				  <div className='row col-xs-6 col-lg-6 col-lg-offset-3 friends-border'>
             <legend className='legend line'>Goal</legend>
 				  		<form action="" method="POST" role="form" onSubmit={this.handleSubmit}>
 				  			<div className="form-group">
