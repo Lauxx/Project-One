@@ -107,7 +107,7 @@ var GoalBoxForm = React.createClass({
 			<div>
 				<div className='container'>
           <div> <br/> <br/>
-				  <div className='row col-xs-6 col-lg-6 col-lg-offset-3 friends-border'>
+				  <div className='row col-xs-12 col-lg-6 col-lg-offset-3 friends-border'>
             <legend className='legend line'>Goal</legend>
 				  		<form action="" method="POST" role="form" onSubmit={this.handleSubmit}>
 				  			<div className="form-group">
