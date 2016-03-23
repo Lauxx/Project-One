@@ -40,7 +40,7 @@ var UserBox = React.createClass ({
     return  this.state.users.map(function(user){
       return(
         <section id = {user._id} >
-          <section className="col-lg-2"> 
+          <section className="col-lg-2 col-md-2 col-xs-12"> 
             <img src={user.local.profileImage} height="50px" width='50px'/>
            </section>
            <h3> <a href={ '/singleFriendPage?id=' + user._id }> {user.local.username}</a></h3>
@@ -75,7 +75,7 @@ var UserBox = React.createClass ({
             <button type="submit" className="legend button-color">Search</button><br/><br/>
           </form>
         </div>
-        <div className="container friends-border row col-lg-8 col-lg-offset-2"> 
+        <div className="container friends-border row col-lg-8 col-lg-offset-2 col-xs-10 col-xs-offset-1"> 
           { this.showUsers() }
         </div>
       </div>
@@ -85,3 +85,9 @@ var UserBox = React.createClass ({
 
 
 ReactDOM.render(<UserBox />, document.getElementById('userbox'));
+
+
+
+
+
+

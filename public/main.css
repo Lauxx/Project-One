@@ -20,16 +20,12 @@
 .foot{
  color: grey;
   background: black;
-  padding-bottom: 35px;
+  padding-bottom: 60px;
   text-align: center;
   font-family: 'Avenir';
   padding-top: 20px;
-}
-
-
-.background-index{
-	background-image: url(http://thecutestblogontheblock.com/wp-content/uploads/2011/11/vintage-pecan-free-stretch-blog-background-cream.jpg);
-	
+  position: relative;
+  width: 100%;
 }
 
 .legend{
@@ -80,11 +76,7 @@ mark.white{
   margin-left: 5px;
 }
 
-a {
-  display: inline !important;
-  color: white;
-  word-spacing: 5px;
-}
+
 
 .date-input{
   width: 200px;
@@ -95,7 +87,7 @@ a {
     text-align:center;
 }
 
-<<<<<<< HEAD
+
 .edit-button{
    position:absolute;
    -webkit-appearance: none;
@@ -107,32 +99,48 @@ a {
      background: transparent !important;
 
 }
-=======
-#searchFoot{
- background-color: white;
- bottom: 0;
- height: 100px;
- left: 0;
- position: absolute;
- right:0;
 
+@media(max-width: 520px) {
+    #searchFoot {
+        display: none;
+    }
 }
 
-a {
-	color: black;
-	font-family: 'Avenir';
+#searchFoot{
+ color: grey;
+  background: black;
+  padding-bottom: 60px;
+  text-align: center;
+  font-family: 'Avenir';
+  padding-top: 20px;
+  position: relative;
+  width: 100%;
+
 }
 
 .friends-border{
 	border: 1px solid black;
 }
->>>>>>> a444b5d40fb7f271d2ecfd8784d999254f4aceb3
+
+.goal-nav{
+	color: white;
+	display: inline !important;
+	
+}
+.date-size{
+	font-size: 15px !important; 
+}
+.task-size{
+	font-size: 20px !important;
 
 .glyphicon-pencil{
   display: none;
-  
 }
-
+.glyphicon-pencil{
+	display: none;
+}
 .show-me:hover .glyphicon-pencil{
   display: block;
 }
+
+

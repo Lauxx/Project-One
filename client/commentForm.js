@@ -39,11 +39,11 @@ var CommentForm = React.createClass({
 		return(
 
 			<div className="container">
-			 <div className="row col-xs-4">
+			 <div className="row col-lg-8 col-lg-offset-4">
         <form action='' method='POST' onSubmit={ this.handleComment } role='form' >
-			     <textarea className="form" rows="5" value={ this.state.body } onChange={ this.handleBodyChange } 
-           placeholder='Add comments here!' id="comment"></textarea>
-            <button type='submit' >Submit Comment</button>
+			     <textarea className="form" rows="6" columns="3" value={ this.state.body } onChange={ this.handleBodyChange } 
+           placeholder='Add comments here!' id="comment"></textarea><br/>
+            <button type='submit' className="legend button-color">Submit Comment</button>
          </form>   
         </div>
       </div>
