@@ -69,6 +69,12 @@ var GoalsApp = React.createClass({
           )
     })
 
+    if(!this.props.guest) {
+      var gf = <GoalBoxForm ableToSubmit={this.props.handleGoalSubmit} ableToDelete={this.props.handleGoalDelete} />;
+    } else {
+      var gf = null;
+    }
+
     
     return (
       <div className='container'>
@@ -77,33 +83,34 @@ var GoalsApp = React.createClass({
       
             <div className="navbar-header">
               <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-          <span className="sr-only">Toggle navigation</span>
-          <span className="icon-bar"></span>
-          <span className="icon-bar"></span>
-          <span className="icon-bar"></span>
-        </button>
-        <p className="navbar-brand legend">My VisiB</p>
-      </div>
+                <span className="sr-only">Toggle navigation</span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+              </button>
+                <p className="navbar-brand legend">My VisiB</p>
+            </div>
   
       
-      <div className="collapse navbar-collapse navbar-ex1-collapse">
-        <ul className="nav navbar-nav navbar-left">
-          <li className="dropdown black">
-            <a href="#" className="dropdown-toggle legend" data-toggle="dropdown">Your Goals<b className="caret"></b></a>
-            <ul className="dropdown-menu navbar-inverse">
-              <li className="legend"><link/>{ links }</li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-        {gb}
-        <GoalBoxForm ableToSubmit={this.props.handleGoalSubmit} ableToDelete={this.props.handleGoalDelete} />
-       </div>     
+            <div className="collapse navbar-collapse navbar-ex1-collapse">
+              <ul className="nav navbar-nav navbar-left">
+                <li className="dropdown black">
+                  <a href="#" className="dropdown-toggle legend" data-toggle="dropdown">Your Goals<b className="caret"></b></a>
+                  <ul className="dropdown-menu navbar-inverse">
+                    <li className="legend"><link/>{ links }</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+        { gb }
+        { gf }
+
+      </div>     
       )
   }
-
 
 });
 

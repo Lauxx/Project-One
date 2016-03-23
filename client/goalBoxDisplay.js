@@ -80,19 +80,21 @@ var GoalBoxDisplay = React.createClass({
       var username = c.user ? c.user.local.username : 'no user';
          return (
           <div>
-            <div className="legend">
-              
-              <section>
-              <h4 className="legend"> UserName: </h4> 
-              <p>@{username} </p>
-              </section>
-              <section> 
-              <p>{c.body} </p>
-              </section> 
-              <section className="line"> 
-              <p className="date-size"> {c.date} </p>
-              </section>
-            </div> <br/><br/>
+
+                <div className="legend">
+                  
+                  <section>
+                  <h4 className="legend"> UserName: </h4> 
+                  <p>@{username} </p>
+                  </section>
+                  <section> 
+                  <p>{c.body} </p>
+                  </section> 
+                  <section className="line"> 
+                  <p className="date-size"> {c.date} </p>
+                  </section>
+                </div> <br/><br/>
+
           </div>
        )
     });
