@@ -30,10 +30,11 @@ var UserBioImageApp = React.createClass({
       var u = {};
       u.bio = "none";
       u.profileImage = "none";
+      u.username = "none";
     }
     return(
       <div>
-        <UserBioApp bio={u.bio} profileImage={u.profileImage} handleBioSubmit={ this.props.handleBioSubmit } guest={ this.props.guest } />
+        <UserBioApp username={u.username} bio={u.bio} profileImage={u.profileImage} handleBioSubmit={ this.props.handleBioSubmit } guest={ this.props.guest } />
     
       </div>
       )
