@@ -142,5 +142,11 @@ mark.white{
 .show-me:hover .glyphicon-pencil{
   display: block;
 }
-
+.black{
+	color:black !important;
+}
+.padding-goal-nav{
+	text-align: center;
+	padding-top: 10px;
+}
 
