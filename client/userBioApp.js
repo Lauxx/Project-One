@@ -51,7 +51,7 @@ var UserBioApp = React.createClass({
     
     this.props.handleBioSubmit({ profileImage: profileImage, bio: bio });
     this.setState({ profileImage: '', bio: ''})
-    this.transitionTo('api/visionboard')
+  
 
   },
 
