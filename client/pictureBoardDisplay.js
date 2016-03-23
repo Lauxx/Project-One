@@ -80,15 +80,26 @@ var PictureBoardDisplay = React.createClass({
 
 		var self = this;
     var picName = " ";
+    if(!this.props.guest) {
+      var allImages = this.props.imagesArr.map(function(image){
+       return (
+            <div className="col-xs-4 ">
+              <img src = { image } height="250px" width="100%"/>
+              <a className="glyphicon glyphicon-remove-circle" onClick={ self.handlePicClick.bind(this, image) }></a>
+            </div>
+
+        )
+      }) 
+    } else {
 		var allImages = this.props.imagesArr.map(function(image){
 			 return (
 			 			<div className="col-xs-4 ">
 			 				<img src = { image } height="250px" width="100%"/>
-              <a className="glyphicon glyphicon-remove-circle" onClick={ self.handlePicClick.bind(this, image) }></a>
 			 			</div>
 
 			 	)
-		})
+      })
+		};
 
   return (
 		<div>

@@ -69,6 +69,12 @@ var GoalsApp = React.createClass({
           )
     })
 
+    if(!this.props.guest) {
+      var gf = <GoalBoxForm ableToSubmit={this.props.handleGoalSubmit} ableToDelete={this.props.handleGoalDelete} />;
+    } else {
+      var gf = null;
+    }
+
     
     return (
       <div className='container'>
@@ -84,8 +90,8 @@ var GoalsApp = React.createClass({
              </ul>
            </div>
          </nav>
-        {gb}
-        <GoalBoxForm ableToSubmit={this.props.handleGoalSubmit} ableToDelete={this.props.handleGoalDelete} />
+        { gb }
+        { gf }
        </div>     
       )
   }
