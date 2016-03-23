@@ -13,8 +13,7 @@
     - UserBioDisplay
     - UserBioForm
  */
- var UserBioDisplay = require('./userBioDisplay');
- var UserBioForm = require('./userBioForm');
+
  var React = require('react');
  
 
@@ -32,7 +31,7 @@ var UserBioApp = React.createClass({
       showDetails: !this.state.showDetails
     });
   },
-
+ 
   handlePhotoChange: function(e){
     this.setState({ profileImage: e.target.value});
   },
@@ -44,15 +43,19 @@ var UserBioApp = React.createClass({
   handleBioSubmit: function(e){
     console.log("handleBioSubmit being called");
     e.preventDefault();
+   
     var profileImage = this.state.profileImage.trim();
     var bio = this.state.bio.trim();
 
     console.log(profileImage, bio);
     
-    this.props.ableToUpdateBio({ profileImage: profileImage, bio: bio });
+    this.props.handleBioSubmit({ profileImage: profileImage, bio: bio });
     this.setState({ profileImage: '', bio: ''})
+    this.transitionTo('api/visionboard')
 
   },
+
+
   renderDetails: function(){
       var showStuff = this.state.showDetails;
       if(showStuff){
@@ -106,7 +109,8 @@ var UserBioApp = React.createClass({
                           onChange={this.handleBioChange} placeholder="Update your bio here" title=""/>
                   </div>
                   <br/><br/>
-              <button type="submit" className="legend button-color margin-left">Submit</button>
+              <button type="submit"  hide={this.state.showDetails} className="legend button-color margin-left">Submit</button>
+              <button type="reset" onClick={this.toggleDetails}  className="legend button-color margin-left">Cancel</button>
               </form>
               <br/><br/>
               </div>
@@ -124,13 +128,7 @@ var UserBioApp = React.createClass({
 
 	render: function(){
 
-    if(this.props.user.local){
-      var u = this.props.user.local
-    } else {
-      var u = {};
-      u.bio = "none";
-      u.profileImage = "none";
-    }
+    
 		return(
 			<div>
        {this.renderDetails()}
