@@ -64,7 +64,7 @@ var UserBioApp = React.createClass({
       if(!this.props.guest) {
       var pencil =  <div className="">
                       <button onClick={this.toggleDetails} type="button" className="btn btn-default btn-lg edit-button">
-                      <span className="glyphicon glyphicon-pencil" ></span> 
+                      <span className="glyphicon glyphicon-pencil pencil" ></span> 
                       </button>
                     </div>
     } else {

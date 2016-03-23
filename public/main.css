@@ -16,7 +16,10 @@
    width: 100%;
    height: 100%;
 }
-
+.pencil{
+  font-size: 15px;
+  margin-left: 20px;
+}
 .foot{
  color: grey;
   background: black;
