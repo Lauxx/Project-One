@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var GoalSchema = new Schema ({
+	goalTitle: String,
     intention: String,
     taskList: Array,
     startDate: String,

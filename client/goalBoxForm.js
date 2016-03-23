@@ -18,12 +18,17 @@ var React = require('react');
 var GoalBoxForm = React.createClass({
   getInitialState: function() {
     return {
+     goalTitle: '', 
      intention: '',
      startDate: '', 
      endDate: '', 
      taskList: [],
      task: ''
    };
+  },
+
+  handleGoalTitleChange: function(e) {
+    this.setState({goalTitle: e.target.value});
   },
 
   handleIntentionChange: function(e) {
@@ -57,18 +62,18 @@ var GoalBoxForm = React.createClass({
 
   handleSubmit: function(e) {
     e.preventDefault();
+    var goalTitle = this.state.goalTitle.trim();
     var intention = this.state.intention.trim();
     var startDate = this.state.startDate.trim();
     var endDate = this.state.endDate.trim();
     var taskList = this.state.taskList;
     
-      console.log(intention, startDate, endDate, taskList, this.myArr);
 
-    if(!intention && !startDate && !taskList) {
+    if(!goalTitle && !intention && !startDate && !taskList) {
       return;
     }
-    this.props.ableToSubmit({intention: intention, startDate: startDate, endDate: endDate, taskList: taskList});
-    this.setState({intention: '', startDate: '', endDate: '', taskList: ''});
+    this.props.ableToSubmit({goalTitle: goalTitle, intention: intention, startDate: startDate, endDate: endDate, taskList: taskList});
+    this.setState({goalTitle: '', intention: '', startDate: '', endDate: '', taskList: ''});
     this.myArr.length = 0;
 
   },
@@ -104,6 +109,11 @@ var GoalBoxForm = React.createClass({
             <legend className='legend line'>Goal</legend>
 				  		<form action="" method="POST" role="form" onSubmit={this.handleSubmit}>
 				  			<div className="form-group">
+                    <label className="row legend margin-left-intention" for="">Goal Title</label>
+                    <input type="text" className="form-control" id="" value={this.state.goalTitle} 
+                    onChange={this.handleGoalTitleChange} placeholder="Goal Title"/>
+               </div>
+                <div className="form-group">
 				      			<label className="row legend margin-left-intention" for="">Intention</label>
 				      			<input type="text" className="form-control" id="" value={this.state.intention} 
                     onChange={this.handleIntentionChange} placeholder="Intention"/>

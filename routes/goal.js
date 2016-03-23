@@ -27,6 +27,7 @@ router.route('/visionboard')
 
     console.log(req.body, 'THIS IS REQ BODY!!!!!!!!!!!!!!!');
 
+    goal.goalTitle = req.body.goalTitle || 'none';
     goal.intention = req.body.intention || 'none';
     goal.taskList = req.body.taskList || 'none';
     goal.startDate = req.body.startDate || 'none';
@@ -88,6 +89,7 @@ router.route('/visionboard/:goal_id')
           console.log(err);
           next();
         } else {
+            goal.goalTitle = req.body.goalTitle ? req.body.goalTitle : goal.goalTitle;
             goal.intention = req.body.intention ? req.body.intention : goal.intention;
             goal.taskList = req.body.taskList ? req.body.taskList : goal.taskList;
             goal.startDate = req.body.startDate ? req.body.startDate : goal.startDate;

@@ -44,7 +44,7 @@ var GoalsApp = React.createClass({
     var links = this.props.goals.map(function(l){
       return (
         <div>
-          <a className="goal-nav" onClick={self.handleLinkClick.bind(this, l._id)}> {l.intention} </a>
+          <a className="goal-nav" onClick={self.handleLinkClick.bind(this, l._id)}> {l.goalTitle} </a>
         </div>
         )
     })
@@ -62,7 +62,7 @@ var GoalsApp = React.createClass({
       
           <GoalBoxDisplay urlGoal='/api/visionboard/' id={g._id} activeGoal={self.state.activeGoal}
           loadGoalsFromServer={ self.props.loadGoalsFromServer } 
-          intention={g.intention} taskList={g.taskList}
+          intention={g.intention} taskList={g.taskList} goalTitle={g.goalTitle}
           startDate={g.startDate} endDate={g.endDate} commentsArray={g.comments} />
           
           </div>
