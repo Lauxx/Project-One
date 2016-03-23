@@ -40,6 +40,7 @@ router.route('/pictureboard/:user_id')
 						console.log(err);
 						next();
 					} else {
+						// res.redirect('/visionboard');
 						res.json ({message: "image updated!"})
 					}
 				})
@@ -61,8 +62,8 @@ router.route('/pictureboard')
 			if (err){
 				console.log(err);
 			} else {
-				// res.json(image);
-				res.redirect('/visionboard');
+				res.json(image);
+				//res.redirect('/visionboard');
 			}
 		});
 	})
