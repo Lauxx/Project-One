@@ -75,7 +75,7 @@ var GoalBoxForm = React.createClass({
       return;
     }
     this.props.ableToSubmit({goalTitle: goalTitle, intention: intention, startDate: startDate, endDate: endDate, taskList: taskList});
-    this.setState({goalTitle: '', intention: '', startDate: '', endDate: '', taskList: ''});
+    this.setState({goalTitle: '', intention: '', startDate: '', endDate: '', taskList: '', task: ''});
     this.myArr.length = 0;
 
   },
@@ -87,7 +87,7 @@ var GoalBoxForm = React.createClass({
       return(
         <div>
           <ul>
-            <li>{t}</li>
+            <li className="legend">{t}</li>
 
           </ul>
 
@@ -139,7 +139,7 @@ var GoalBoxForm = React.createClass({
 				         	<div className="form-group">
 				         		<textarea  className='legend margin-left' value={this.state.task} onChange={this.handleTaskChange} placeholder="Enter your task here"></textarea>
 				            <br/><br/>
-                    <button type="submit" onClick={this.handleTaskSubmit} className="legend task-button-color margin-left">Add Task</button><br/><br/>
+                    <button type="submit" onClick={this.handleTaskSubmit} className="legend task-button-color margin-left">Add Tasks</button><br/><br/>
 				        		<button type="submit" className="legend button-color margin-left" >Submit</button>
 				        	</div>
 				  		</form>
