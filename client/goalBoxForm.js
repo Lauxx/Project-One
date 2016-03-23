@@ -132,13 +132,14 @@ var GoalBoxForm = React.createClass({
 				         		<input type="date" name="" id="input" className="form col-xs-3 date-input" data-date-format="mm/dd/yyyy" value={this.state.endDate} 
                     onChange={this.handleEndDateChange} required="required" title=""/>
 				         </div>
-				         	<br/>
+				         	<br/><br/>
                   <div>
                     {tL}
                   </div>
-				         	<div className="row">
-				         		<textarea width="300px" height="200px" className='legend margin-left' value={this.state.task} onChange={this.handleTaskChange} placeholder="Enter your task here"></textarea>
-				        <span className="margin-left"><button type="submit" onClick={this.handleTaskSubmit} className="legend button-color center-block">Add Task</button></span><br/><br/>
+				         	<div className="form-group">
+				         		<textarea  className='legend margin-left' value={this.state.task} onChange={this.handleTaskChange} placeholder="Enter your task here"></textarea>
+				            <br/><br/>
+                    <button type="submit" onClick={this.handleTaskSubmit} className="legend task-button-color margin-left">Add Task</button><br/><br/>
 				        		<button type="submit" className="legend button-color margin-left" >Submit</button>
 				        	</div>
 				  		</form>
