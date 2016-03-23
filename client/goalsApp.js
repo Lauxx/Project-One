@@ -101,7 +101,7 @@ var GoalsApp = React.createClass({
                 <li className="dropdown black">
                   <a href="#" className="dropdown-toggle legend" data-toggle="dropdown">Goals<b className="caret"></b></a>
                   <ul className="dropdown-menu navbar-inverse">
-                    <li className="legend"><link/>{ links }</li>
+                    <li className="legend center"><link/>{ links }</li>
                   </ul>
                 </li>
               </ul>
