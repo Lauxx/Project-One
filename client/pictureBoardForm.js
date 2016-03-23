@@ -28,8 +28,8 @@
     this.setState({uploadImage: e.target.value});
   },
 
-  handleImageSubmit: function(uploadImage) {
-
+  handleImageSubmit: function(e) {
+    e.preventDefault();
     var newArr = this.props.imagesArr.map(function(item){
       return item;
     });
@@ -70,7 +70,7 @@
  	render: function(){
  		return (
  			<div className= 'container col-lg-4 col-lg-offset-8'>
- 				<form onSubmit={ this.handleImageSubmit } role="form">
+ 				<form role="form">
  					<p className="legend line">Upload image to your VisionBoard.</p>
  				
  					<div className="form-group">
@@ -78,7 +78,7 @@
                     onChange={this.handleImageChange} placeholder="Ex. http://example-image.jpg"/>
  					</div>
  				
- 					<button type="submit" className="legend button-color">Add Image</button>
+ 					<button onClick={ this.handleImageSubmit } type="submit" className="legend button-color">Add Image</button>
  				</form>
  			</div>
 		)

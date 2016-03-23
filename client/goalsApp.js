@@ -41,10 +41,12 @@ var GoalsApp = React.createClass({
   render: function() {
     var self = this;
     var gid = " ";
+
     var links = this.props.goals.map(function(l){
+      
       return (
         <div>
-          <a className="goal-nav" onClick={self.handleLinkClick.bind(this, l._id)}> {l.goalTitle} </a>
+          <a className="goal-nav" onClick={self.handleLinkClick.bind(null, l._id)}> {l.goalTitle} </a>
         </div>
         )
     })
