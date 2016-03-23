@@ -8,13 +8,12 @@
       - CommentForm
     - GoalBoxForm
    
-
-  - UserBioApp
-    - UserBioDisplay
-    - UserBioForm
+  UserBioImageApp
+    - UserBioApp
+   
  */
 
-var UserBioApp = require('./userBioApp');
+var UserBioImageApp = require('./userBioImageApp');
 var GoalsApp = require('./goalsApp');
 var PictureBoardDisplay = require('./pictureBoardDisplay');
 var PictureBoardForm = require('./pictureBoardForm');
@@ -139,6 +138,7 @@ var VisionBoard = React.createClass ({
       data: userBio,
       success: function(data){
         this.loadUserFromServer();
+        window.location='visionboard'
       }.bind(this),
       error: function(xhr, status, err){
         console.error(this.props.url, status, err.toString());
@@ -155,14 +155,23 @@ var VisionBoard = React.createClass ({
     this.getUrl();
   },
 
+  
+  
+    
+
   render: function() {
-    window.getUrl=this.getUrl;
-    if (this.state.user) {
+
+    if(this.state.user) {
     return (
         <div>
-          <PictureBoardDisplay loadUserFromServer={ this.loadUserFromServer } loadImageUrlFromServer={ this.loadImageUrlFromServer } imagesArr={ this.state.imageUrls }
+          <PictureBoardDisplay loadUserFromServer={ this.loadUserFromServer } loadImageUrlFromServer={ this.loadImageUrlFromServer } 
+            imagesArr={ this.state.imageUrls }
             urlPicture={ this.props.urlPicture } userId={ this.state.user._id } guest={ this.state.guest } />
-          <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit } guest={ this.state.guest } />
+
+
+          <UserBioImageApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit } 
+             bio={this.userBio} profileImage={this.userImage}/>
+
           <GoalsApp goals={this.state.goals} handleGoalSubmit={ this.handleGoalFormSubmit } 
                     loadGoalsFromServer={ this.loadGoalsFromServer } guest={ this.state.guest } />
           

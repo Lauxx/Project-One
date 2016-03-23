@@ -120,6 +120,7 @@ mark.white{
 
 .friends-border{
 	border: 1px solid black;
+  padding: 25px;
 }
 
 .goal-nav{

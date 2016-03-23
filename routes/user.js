@@ -108,6 +108,7 @@ module.exports = function(app, passport) {
                 console.log(err)
               } else {
                 res.json(update);
+               
               }
             })
           }
