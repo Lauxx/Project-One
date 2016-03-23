@@ -1,8 +1,9 @@
 /*
+- UserBox
 - VisionBoard
 
   -PictureBoardDisplay
-  -PictureBoardForm
+    -PictureBoardForm
 
   - GoalsApp
     - GoalBoxDisplay
@@ -10,11 +11,10 @@
     - GoalBoxForm
    
 
-  - UserBioApp
-    - UserBioDisplay
-    - UserBioForm
+  - UserBioImageApp
+    - UserBioApp
+   
  */
-
 var PictureBoardForm = require('./pictureBoardForm');
 var React = require('react');
 

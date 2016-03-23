@@ -1,4 +1,20 @@
+/*
+- UserBox
+- VisionBoard
 
+  -PictureBoardDisplay
+    -PictureBoardForm
+
+  - GoalsApp
+    - GoalBoxDisplay
+      - CommentForm
+    - GoalBoxForm
+   
+
+  - UserBioImageApp
+    - UserBioApp
+   
+ */
 
 
 var React = require('react');

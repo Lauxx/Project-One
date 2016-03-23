@@ -1,7 +1,9 @@
 /*
+- UserBox
 - VisionBoard
 
-  - PictureApp
+  -PictureBoardDisplay
+    -PictureBoardForm
 
   - GoalsApp
     - GoalBoxDisplay
@@ -9,9 +11,9 @@
     - GoalBoxForm
    
 
-  - UserBioApp
-    - UserBioDisplay
-    - UserBioForm
+  - UserBioImageApp
+    - UserBioApp
+   
  */
 var CommentForm = require('./commentForm');
 var React = require('react');

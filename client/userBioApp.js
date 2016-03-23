@@ -1,7 +1,9 @@
 /*
+- UserBox
 - VisionBoard
 
-  - PictureApp
+  -PictureBoardDisplay
+    -PictureBoardForm
 
   - GoalsApp
     - GoalBoxDisplay
@@ -9,9 +11,9 @@
     - GoalBoxForm
    
 
-  - UserBioApp
-    - UserBioDisplay
-    - UserBioForm
+  - UserBioImageApp
+    - UserBioApp
+   
  */
 
  var React = require('react');
@@ -57,6 +59,21 @@ var UserBioApp = React.createClass({
 
 
   renderDetails: function(){
+
+
+      if(!this.props.guest) {
+      var pencil =  <div className="">
+                      <button onClick={this.toggleDetails} type="button" className="btn btn-default btn-lg edit-button">
+                      <span className="glyphicon glyphicon-pencil" ></span> 
+                      </button>
+                    </div>
+    } else {
+      var pencil = null;
+    };
+
+
+
+
       var showStuff = this.state.showDetails;
       if(showStuff){
    
@@ -73,11 +90,8 @@ var UserBioApp = React.createClass({
                    <section className="row col-lg-7 col-lg-offset-1 col-xs-7 col-xs-offset-1">
                     <h3 className="legend"> A little about me.</h3>
                     <p className="legend"> {this.props.bio} </p>
-                    <div className="">
-                      <button onClick={this.toggleDetails} type="button" className="btn btn-default btn-lg edit-button">
-                      <span className="glyphicon glyphicon-pencil" ></span> 
-                      </button>
-                    </div>
+
+                    {pencil}
                     
                   </section>
                

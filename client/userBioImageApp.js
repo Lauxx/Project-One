@@ -1,3 +1,21 @@
+/*
+- UserBox
+- VisionBoard
+
+  -PictureBoardDisplay
+    -PictureBoardForm
+
+  - GoalsApp
+    - GoalBoxDisplay
+      - CommentForm
+    - GoalBoxForm
+   
+
+  - UserBioImageApp
+    - UserBioApp
+   
+ */
+
 var UserBioApp = require('./userBioApp');
  var React = require('react');
  
@@ -15,7 +33,7 @@ var UserBioImageApp = React.createClass({
     }
     return(
       <div>
-        <UserBioApp bio={u.bio} profileImage={u.profileImage} handleBioSubmit={ this.props.handleBioSubmit }  />
+        <UserBioApp bio={u.bio} profileImage={u.profileImage} handleBioSubmit={ this.props.handleBioSubmit } guest={ this.props.guest } />
     
       </div>
       )
