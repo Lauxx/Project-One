@@ -53,6 +53,13 @@
 	border-color: black
 }
 
+
+.task-button-color{
+  background-color: #1abc9c;
+  padding: 5px;
+  border-color: black
+}
+
 mark.white{
 	color: white;
 	background: none;
@@ -150,4 +157,6 @@ mark.white{
 	text-align: center;
 	padding-top: 10px;
 }
+
+
 
