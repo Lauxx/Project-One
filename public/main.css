@@ -111,6 +111,19 @@ mark.white{
      background: transparent !important;
 
 }
+@media(max-width: 990px){
+  .pictureBoardDisplay{
+    height: 150px !important;
+    width: 100% !important;
+  }
+
+}
+@media(max-width: 1199px){
+  .pictureBoardDisplay{
+    height: 200px !important;
+    width: 100% !important;
+  }
+}
 
 @media(max-width: 520px) {
     #searchFoot {
