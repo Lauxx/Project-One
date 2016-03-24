@@ -137,7 +137,7 @@ mark.white{
 }
 
 .pictureBoardDisplay{
-  display: block;
+  display: inline;
   height: 250px;
   width: 100%;
 

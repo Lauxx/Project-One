@@ -44,16 +44,6 @@ var VisionBoard = React.createClass ({
     }
   },
 
-  /* showBio: function() {
-      if (this.state.guest) {
-        return <UserBioApp user={this.state.guest} handleBioSubmit={ this.handleUserBioFormSubmit }/>
-      } else if (this.state.user) {
-        return <UserBioApp user={this.state.user} handleBioSubmit={ this.handleUserBioFormSubmit }/>
-      } else {
-        return null;
-      }
-
-  }, */
 
   loadUserFromServer: function() {
     var self = this; 

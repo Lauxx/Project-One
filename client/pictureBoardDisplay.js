@@ -76,7 +76,7 @@ var PictureBoardDisplay = React.createClass({
       var showForm = null;
     };
 
-		console.log(this.props.imagesArr);
+		
 
 		var self = this;
     var picName = " ";
@@ -94,7 +94,7 @@ var PictureBoardDisplay = React.createClass({
 		var allImages = this.props.imagesArr.map(function(image){
 			 return (
 			 			<div className="col-xs-4 ">
-			 				<img src = { image } height="250px" width="100%"/>
+			 				<img src = { image } className="pictureBoardDisplay"/>
 			 			</div>
 
 			 	)
