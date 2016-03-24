@@ -113,19 +113,15 @@ mark.white{
 }
 @media(max-width: 990px){
   .pictureBoardDisplay{
-    max-height: 150px !important;
-    max-width: 100% !important;
-    height: auto !important;
-    width: auto !important;
+    height: 150px !important;
+    width: 100% !important;
   }
 
 }
 @media(max-width: 1199px){
   .pictureBoardDisplay{
-    max-height: 200px !important;
-    max-width: 100% !important;
-    height: auto !important;
-    width: auto !important;
+    height: 200px !important;
+    width: 100% !important;
   }
 }
 
@@ -134,10 +130,8 @@ mark.white{
         display: none;
     }
     .pictureBoardDisplay{
-      max-height: 100px !important;
-      max-width: 100% !important;
-      height: auto !important;
-      width: auto !important;
+      height: 100px !important;
+      width: 100% !important;
       
     }
 }
